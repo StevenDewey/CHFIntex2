@@ -1,0 +1,22 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+    <a href="/homepage/rental"><button class="right btn btn-primary">Back To Rental Products</button></a>
+    <div id="product_detail_div">
+        <h1> ${ rental.product_specification.name } <br> </h1>
+        <div class="productDiv">
+            <img src="${ rental.product_specification.photo.image }"/>
+            <div>
+                <p><span class="bold">Description: </span>${ rental.product_specification.description }</p>
+                <p><span class="bold">Price Per Day: </span>${ rental.price_per_day }</p>
+            </div>
+            <span class="center">
+                <form class="inline">
+                    <label for="duration">Duration (Days): </label>
+                    <input min="1" type="number" id="duration" name="duration" value="1" />
+                </form>
+                <button data-pid="${ rental.id }" class="add_button btn btn-warning">Rent Now</button>
+            </span>
+        </div>
+    </div>
+ </%block>

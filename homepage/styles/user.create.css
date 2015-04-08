@@ -1,0 +1,23 @@
+#create_submit_button{
+    display: inline-block;
+    float:left;
+}
+
+#create_cancel_button{
+    display: inline-block;
+    float:left;
+    /*clear: both;*/
+}
+
+#id_username_message_invalid{
+    color: red;
+    margin-left: 2.5%;
+    font-weight: bold;
+}
+
+#id_username_message_valid{
+    color: green;
+    font-weight: bold;
+    margin-left: 2.5%;
+}
+

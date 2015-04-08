@@ -1,0 +1,62 @@
+/*#landing_background{*/
+    /*background: url(/static/homepage/media/flag1.jpg) no-repeat center;*/
+    /*opacity: .7;*/
+    /*-o-background-size: 100% 100%;*/
+    /*-moz-background-size: 100% 100%;*/
+    /*-webkit-background-size: 100% 100%;*/
+    /*background-size:cover !important;*/
+    /*min-height: 550px;*/
+    /*min-height: 400px;*/
+    /*max-height: 14000px;*/
+    /*background-size: 60% !important;*/
+    /*backgroundfont-stretch: ultra-expanded;*/
+    /*position: relative;*/
+/*}*/
+
+/*.col-md-11{*/
+    /*display: block;*/
+    /*width: 95%;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+/*}*/
+
+/*.content btn btn-default{*/
+    /*display: block;*/
+    /*width: 70%;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+/*}*/
+
+
+
+
+
+
+
+/*.form-group{*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+/*}*/
+
+/*.form-group label{*/
+    /*display: block;*/
+    /*width: 95%;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+/*}*/
+
+/*.form-control{*/
+    /*margin-left: 2.5% !important;*/
+    /*max-width: 300px;*/
+    /*margin-right: auto;*/
+/*}*/
+
+/*form button{*/
+    /*display: block !important;*/
+    /*margin-left: 2.5%;*/
+    /*width: 15%;*/
+/*}*/
+
+#id_quantity{
+    max-width: 50px;
+}

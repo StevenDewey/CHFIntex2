@@ -1,0 +1,26 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+    <head>
+        <title>Rentals</title>
+    </head>
+    <div class="tableContain">
+        <h1>Rentals</h1>
+        <div id="DisplayProducts">
+            <div class="displaystuff">
+                %for rental in rentals:
+                    <div class="productstuff">
+                        <div class="productDiv">
+                          <a href="/rental_detail/${ rental.id }"><img src="${ rental.product_specification.photo.image }"/></a>
+                          <div class="buyButton"><a href="/rental_detail/${ rental.id }">${ rental.product_specification.name }</a></div><br>
+                          <div class="center">
+                            <p class="bold">Price Per Day: </p>${ rental.price_per_day } <br><br>
+                            <button data-pid="${ rental.id }" class="add_button btn btn-warning">Rent Now</button>
+                          </div>
+                        </div>
+                    </div>
+                %endfor
+            </div>
+        </div>
+    </div>
+</%block>

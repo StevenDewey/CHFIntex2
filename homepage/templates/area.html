@@ -1,0 +1,31 @@
+<%inherit file="base.htm" />
+
+<html>
+<body>
+
+<%block name="content">
+##    this is the div with the search bar
+
+<div class="text-right">
+</div>
+    <div class="tableContain">
+    <h1>Areas</h1>
+        <div id="Displayareas">
+            <div class="displaystuff">
+            %for area in areas:
+                <div class="areastuff">
+                    <div class="areaDiv">
+                        <a href="/homepage/area_detail/${ area.id }">
+                          <img src="${ area.photo.image }"/>
+                          <div class="mid"> ${ area.name }</div>
+                        </a><br>
+                        <p><b>Description:</b> ${ area.description }</p>
+                    </div>
+                </div>
+            %endfor
+            </div>
+        </div>
+    </div>
+ </%block>
+</body>
+</html>

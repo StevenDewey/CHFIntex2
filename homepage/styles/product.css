@@ -1,0 +1,68 @@
+.center {
+  text-align: center;
+}
+
+.productDiv {
+	height: 260px;
+	width: 240px;
+	background-color: #ededed;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+}
+
+input {
+	display: inline;
+	width: 45px
+}
+
+.productstuff{
+	display: inline-block;
+}
+
+.buyButton {
+	text-align: center;
+}
+
+.productDiv p{
+	display: inline;
+}
+
+.productDiv:hover {
+	background-color: #e4e4e4;
+}
+
+#search {
+	width: 200px;
+}
+
+#search + input{
+	width: 100px;
+}
+
+.productDiv img {
+	max-height: 100px;
+	max-width: 150px;
+	margin-bottom: 10px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 5px;
+  margin-top: 10px;
+}
+
+a {
+	z-index: 10;
+}
+
+button {
+	z-index: 100;
+}
+
+img {
+	max-height: 50px;
+	max-width: 50px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Thank you!</h1>
+    <h2>Here's all the info from your purchase:</h2>
+    <br>
+
+    <table style="border:1px solid black">
+            <tr align="left">
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price Per Day</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+
+                %for k in rentals:
+
+                    <tr>
+                        <td>
+                            ${ k.product_specification.name }
+                        </td>
+                        <td>
+                            ${ k.product_specification.description }
+                        </td>
+                            ## <div onclick="location.href='/product_detail/${ product.id }';" class="productDiv">
+                        <td>
+                            ${ k.price_per_day }
+                        </td>
+                        <td class="qtyContainer">
+                            ${rentals[k]}
+                        </td>
+                        <td>
+                            ${round(float(k.price_per_day) * int(rentals[k]), 2)}
+                        </td>
+                    </tr>
+                %endfor
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> <b>Order Total: </b></td>
+                <td>
+                    ${ orderTotal }
+                </td>
+            </tr>
+        </table>
+</body>
+</html>

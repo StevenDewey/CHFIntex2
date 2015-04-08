@@ -1,0 +1,11 @@
+#change_password_btn{
+    float: left;
+    display: inline;
+    margin-left: 15px;
+}
+
+#edit_btn{
+    float: left;
+    display: inline;
+}
+

@@ -1,0 +1,60 @@
+<%inherit file = "base_ajax.htm"/>
+
+<html>
+    <head>
+    </head>
+    <body>
+    <%block name="content">
+
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Name</th>
+                <th>Photo</th>
+                <th>Description</th>
+                <th>Daily Price</th>
+                <th>Duration (days)</th>
+                <th>Remove from Cart</th>
+                <th>Total</th>
+            </tr>            
+                %for k in rentalProducts:
+                <tr>
+                    <td>
+                        ${ k.product_specification.name } 
+                    </td>
+                    <td>
+                        <img src="${ k.product_specification.photo.image }"/>
+                    </td>
+                    <td>
+                        ${ k.product_specification.description }
+                    </td>
+                        ## <div onclick="location.href='/product_detail/${ product.id }';" class="productDiv">
+                    <td>
+                        ${ k.price_per_day }
+                    </td>
+                    <td class="qtyContainer">
+                        <input  type="number" id="id_quantity" class="quantity" name="quantity" data-pid="${ k.id }" value="${rentalProducts[k]}" />
+                    </td>
+                    <td>
+                        <button data-pid="${ k.id }" class="remove_btn btn btn-danger">Remove</button>
+                    </td>    
+                    <td>
+                        ${round(float(k.price_per_day) * int(rentalProducts[k]), 2)}
+                    </td>                    
+                </tr>
+                %endfor
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> Order Total: </td>
+                <td>
+                    ${orderTotal}
+                </td>
+            </tr>
+                
+        </table>
+    </%block>  
+    </body>
+</html>

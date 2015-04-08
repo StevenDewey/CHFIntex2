@@ -1,0 +1,47 @@
+.user_info img{
+    max-height: 100px;
+    max-width: 100px;
+    border-radius: 5px;
+}
+
+.inline{
+    display: inline-block;
+}
+
+#float {
+  float: left;
+}
+
+.user_info{
+	display: inline-block;
+  text-align: left;
+  height: 440px;
+	width: 300px;
+	background-color: #ededed;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+}
+
+.rental_info img{
+    max-height: 100px;
+    max-width: 100px;
+    border-radius: 5px;
+}
+
+.rental_info{
+	display: inline-block;
+  text-align: left;
+  min-height: 300px;
+	min-width: 250px;
+	background-color: #ededed;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+}

@@ -1,0 +1,61 @@
+<%inherit file="base.htm" />
+
+<html>
+<head>
+
+</head>
+<body>
+    <%block name="content">
+
+    <head>
+        <title>Orders</title>
+    </head>
+
+        <div class="page-header">
+            <h1> Orders <small></small></h1>
+        </div>
+        <a href="/homepage/order.create/" class="btn btn-warning" style="margin-bottom: 10px">Create New Order</a>
+        <table id="order_table" class="table table-striped table-bordered table-hover">
+            <tr>
+                <th></th>
+                <th> Order Date </th>
+                <th> Phone </th>
+                <th> Date Packed </th>
+                <th> Date Paid </th>
+                <th> Date Shipped </th>
+                <th> Tracking Number </th>
+                <th> Ship Address 1 </th>
+                <th> Ship Address 2 </th>
+                <th> Ship City </th>
+                <th> Ship State </th>
+                <th> Ship Zip </th>
+                <th> Ship Country </th>
+                <th> Agent ID </th>
+            </tr>
+
+            %for order in orders:
+                <tr>
+                    <td>
+                        <a href="/homepage/order.edit/${ order.id }">Edit</a>
+                        <span> | </span>
+                        <a href="/homepage/order.delete/${ order.id }/">Delete</a>
+                    </td>
+                    <td>${ order.order_date }</td>
+                    <td>${ order.phone }</td>
+                    <td>${ order.date_packed }</td>
+                    <td>${ order.date_paid }</td>
+                    <td>${ order.date_shipped }</td>
+                    <td>${ order.tracking_number }</td>
+                    <td>${ order.ship_address1 }</td>
+                    <td>${ order.ship_address2 }</td>
+                    <td>${ order.ship_city }</td>
+                    <td>${ order.ship_state }</td>
+                    <td>${ order.ship_zip }</td>
+                    <td>${ order.ship_country }</td>
+                    <td>${ order.Agent_id }</td>
+                </tr>
+            %endfor
+        </table>
+    </%block>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+    ${ error }
+    ${ success }
+        <div class="inline">
+            <div class="rental_info">
+                <form id="loginform" method="POST" action="'/homepage/rental_return.fees/{}/'.format(p) + '{}/'.format(g)">
+                    <table>
+                        <span class="bold" id="float">Days Late: </span>${ days_late }
+                        ${ form }
+                    </table>
+                    <br>
+                    Past Damages:
+                    %for d in damages:
+                    <tr>
+                        <td>
+                            ${ d.description } |
+                        </td>
+                    </tr>
+                    %endfor
+                    <br><br>
+                    <button type="submit" class="btn btn-warning">Submit</button>
+                </form>
+            </div>
+            <div class="user_info">
+                <h4>Customer</h4>
+                ${ rental.order.customer.first_name + " " + rental.order.customer.last_name } <br>
+                ${ rental.order.customer.email } <br>
+                ${ rental.order.customer.phone }  <br>
+                <hr color="black" size="2" width="50%">
+                <h4>Rental</h4>
+                <span class="bold">Rent Date: </span>${ rental.date_out } <br><br>
+                <span class="bold">Due Date: </span>${ rental.date_due } <br><br>
+                ${ rental.rental_product.product_specification.name } <br><br>
+                <img src="${ rental.rental_product.product_specification.photo.image }"/> <br>
+
+            </div>
+            <div class="order_info">
+
+
+            </div>
+        </div>
+ </%block>
+</body>
+</html>

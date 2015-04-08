@@ -1,0 +1,111 @@
+<%inherit file="base.htm" />
+
+<html>
+<head>
+
+</head>
+<body>
+    <%block name="content">
+
+        <head>
+            <title>Overdue Rentals</title>
+        </head>
+
+        <div class="page-header">
+            <h1> Overdue Rental Items <small></small></h1>
+        </div>
+            ${ complete }
+
+        <h2>90+ days late</h2>
+
+        <table id="overdue_rental_table" class="table table-bordered table-hover">
+            <tr>
+                <th> Rented Item </th>
+                <th> Customer </th>
+                <th> Customer's Phone Number </th>
+                <th> Date Due </th>
+                <th> Replacement Price </th>
+            </tr>
+
+            %for overdue_rental in overdue_rentals90p:
+                <tr>
+                    <td>${ overdue_rental.rental_product.product_specification.name}</td>
+                    <td>${ overdue_rental.order.customer.first_name }</td>
+                    <td>${ overdue_rental.order.customer.phone }</td>
+                    <td>${ overdue_rental.date_due }</td>
+                    <td>${ overdue_rental.rental_product.replacement_price }</td>
+                </tr>
+            %endfor
+        </table>
+
+        <h2>60 days late</h2>
+
+        <table id="overdue_rental_table" class="table table-bordered table-hover">
+            <tr>
+                <th> Rented Item </th>
+                <th> Customer </th>
+                <th> Customer's Phone Number </th>
+                <th> Date Due </th>
+                <th> Replacement Price </th>
+            </tr>
+
+            %for overdue_rental in overdue_rentals90:
+                <tr>
+                    <td>${ overdue_rental.rental_product.product_specification.name}</td>
+                    <td>${ overdue_rental.order.customer.first_name }</td>
+                    <td>${ overdue_rental.order.customer.phone }</td>
+                    <td>${ overdue_rental.date_due }</td>
+                    <td>${ overdue_rental.rental_product.replacement_price }</td>
+                </tr>
+            %endfor
+        </table>
+
+        <h2>30 days late</h2>
+
+        <table id="overdue_rental_table" class="table table-bordered table-hover">
+            <tr>
+                <th> Rented Item </th>
+                <th> Customer </th>
+                <th> Customer's Phone Number </th>
+                <th> Date Due </th>
+                <th> Replacement Price </th>
+            </tr>
+
+            %for overdue_rental in overdue_rentals60:
+                <tr>
+                    <td>${ overdue_rental.rental_product.product_specification.name}</td>
+                    <td>${ overdue_rental.order.customer.first_name }</td>
+                    <td>${ overdue_rental.order.customer.phone }</td>
+                    <td>${ overdue_rental.date_due }</td>
+                    <td>${ overdue_rental.rental_product.replacement_price }</td>
+                </tr>
+            %endfor
+        </table>
+
+        <h2>1 day late</h2>
+
+        <table id="overdue_rental_table" class="table table-bordered table-hover">
+            <tr>
+                <th> Rented Item </th>
+                <th> Customer </th>
+                <th> Customer's Phone Number </th>
+                <th> Date Due </th>
+                <th> Replacement Price </th>
+            </tr>
+
+            %for overdue_rental in overdue_rentals30:
+                <tr>
+                    <td>${ overdue_rental.rental_product.product_specification.name}</td>
+                    <td>${ overdue_rental.order.customer.first_name }</td>
+                    <td>${ overdue_rental.order.customer.phone }</td>
+                    <td>${ overdue_rental.date_due }</td>
+                    <td>${ overdue_rental.rental_product.replacement_price }</td>
+                </tr>
+            %endfor
+        </table>
+
+        <a href="/homepage/overdue_rental.batch_email/"><button class="btn btn-warning">Send Batch Email</button></a>
+
+    </%block>
+</body>
+</html>

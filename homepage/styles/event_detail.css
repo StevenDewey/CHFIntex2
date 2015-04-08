@@ -1,0 +1,117 @@
+#event_detail_div{
+    text-align: center;
+    clear: both;
+}
+
+.col-md-11 {
+    clear: left;
+    text-align: center;
+}
+
+#id_quantity {
+    width:50px;
+}
+
+.eventDiv {
+    display: inline-block;
+    min-height: 240px;
+    width: 350px;
+    background-color: #ededed;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    text-align: left;
+}
+
+.eventDiv p {
+    display: inline;
+}
+
+.eventDiv img + div {
+    display: inline-block;
+    margin-left: 35%;
+    margin-right: 35%;
+    width: 30%;
+}
+
+.center{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.eventDiv:hover {
+	background-color: #e4e4e4;
+}
+
+.right{
+    float:right;
+}
+
+td img{
+    max-width: 50px;
+    max-height: 50px;
+}
+
+input {
+    display: inline;
+    width: 45px
+}
+
+.eventstuff{
+    display: inline-block;
+    height: 300px;
+}
+
+.buyButton {
+    text-align: center;
+}
+
+.areaDiv {
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    background-color: #ededed;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    text-align: center;
+}
+
+.areaDiv img {
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.areaDiv:hover {
+	background-color: #e4e4e4;
+}
+
+.eventImageDiv {
+    display: inline-block;
+    max-height: 300px;
+    max-width: 300px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    text-align: left;
+}
+
+.eventImageDiv img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 300px;
+    max-height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}

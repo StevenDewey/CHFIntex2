@@ -1,0 +1,26 @@
+<%inherit file="base.htm"/>
+<%block name="content">
+
+    <head>
+        <title>Edit Account</title>
+    </head>
+
+    <div class="content">
+        <form method="POST">
+            <div class="page-header">
+                <h1> Edit Account <small></small></h1>
+            </div>
+            %for field in form:
+                <div class="form-group">
+                    <label for=${field.name}>${field.name}</label>
+                    ${field}
+                </div>
+            %endfor
+            <button id="edit_account_submit" type="submit" class="btn btn-default">Submit</button>
+            <a href="/homepage/account/${ request.user.id }/${ request.user.address_id }">
+                <button id="cancel_btn" type="button" class="btn btn-default">Cancel</button>
+            </a>
+            <br><br><br>
+        </form>
+    </div>
+</%block>

@@ -1,0 +1,17 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+    <%
+        import random
+        r = random.randint(0,100)
+    %>
+
+    <h1>${ r }</h1>
+
+    %for i in range(1000):
+        %if i % 2 == 0:
+            <p>${ i }. Hello world.</p>
+        %endif
+    %endfor
+</%block>

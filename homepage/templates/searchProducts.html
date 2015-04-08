@@ -1,0 +1,13 @@
+%for product in products:
+    <div class="productstuff">
+        <div class="productDiv">
+            <a href="/product_detail/${ product.id }"><img src="${ product.photo }"/></a>
+            <div class="buyButton"><a href="/product_detail/${ product.id }">${ product.name }</a></div>
+            <p>Description: </p>${ product.description }<br>
+            <p>Price: </p>${ product.price } <br>
+            <div class="buyButton">
+                <button data-pid="${ product.id }" class="add_button btn btn-warning">Buy Now</button>
+            </div>
+        </div>
+    </div>
+%endfor

@@ -1,0 +1,41 @@
+<%inherit file="base.htm" />
+
+<html>
+<head>
+
+</head>
+<body>
+    <%block name="content">
+        <div class="page-header">
+            <h1> Your Account <small></small></h1>
+        </div>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th> Name </th>
+                <th> Email </th>
+                <th> Phone Number </th>
+                <th> Street </th>
+                <th> Street 2 </th>
+                <th> City </th>
+                <th> State </th>
+                <th> Zip </th>
+                <th> Country </th>
+            </tr>
+
+            <tr>
+                <td>${ user.first_name + " " + user.last_name }</td>
+                <td>${ user.email }</td>
+                <td>${ user.phone }</td>
+                <td>${ user.address.street1 }</td>
+                <td>${ user.address.street2 }</td>
+                <td>${ user.address.city }</td>
+                <td>${ user.address.state }</td>
+                <td>${ user.address.zip_code }</td>
+                <td>${ user.address.country }</td>
+            </tr>
+        </table>
+        <a href="/homepage/edit_account/${ request.user.id }/${ request.user.address_id }"><button id="edit_btn" type="button" class="btn btn-default">Edit</button></a>
+        <a href="/homepage/edit_account.password/${ user.id }/"><button id="change_password_btn" type="button" class="btn btn-default">Change Password</button></a>
+    </%block>
+</body>
+</html>

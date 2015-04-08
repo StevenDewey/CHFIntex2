@@ -1,0 +1,31 @@
+.footer_center_bottom {
+    /*background-color: rgba(150, 156, 153, 0.18);*/
+    text-align: right;
+    font-size: .6em;
+    font-weight: 500;
+    padding: 10px;
+    color: #F4F4F4;
+    bottom: 5px;
+    position: fixed;
+    max-height: 20px;
+    width: 100%;
+    margin-bottom: 10px;
+    position: fixed;
+}
+
+#log_current_date{
+    color: black;
+}
+
+#center{
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.inline{
+    display: inline-block;
+}

@@ -1,0 +1,17 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+    <a href="/homepage/area"><button class="right btn btn-primary">Back To Areas</button></a>
+    <div id="area_detail_div">
+        <div class="areaImageDiv">
+            <img src="${ area.photo.image }">
+        </div>
+        <div class="areaDiv">
+            <h1 class="center"> ${ area.name } <br> </h1>
+            <p><b>Description:</b> </p>${ area.description }<br><br>
+            <p><b>Place Number:</b> ${ area.place_number }</p><br><br>
+            <p><b>Coordinator:</b> ${ area.coordinator.first_name + " " + area.coordinator.last_name }</p><br><br>
+            <p><b>Supervisor:</b> ${ area.supervisor.first_name + " " + area.supervisor.last_name }</p><br><br>
+        </div>
+    </div>
+ </%block>

@@ -1,0 +1,169 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+
+## set up a StaticRenderer object to enable the CSS/JS automatic inclusion magic.
+<%! from django_mako_plus.controller import static_files %>
+<%  static_renderer = static_files.StaticRenderer(self) %>
+<%!
+    import datetime
+%>
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+
+    ######  SEO  #######
+    <meta name="description" content="Colonial Heritage Foundation is a foundation based in Orem, UT. The foundation holds a
+    festival every year to showcase some of our American legacy from colonial times. The events include many artisans, activities, vintage
+    clothing items, and many things to do for the whole family. Many products and rental items are available online for purchase and checkout.">
+    <meta name="keywords" content="Colonial, Heritage, Foundation, Civil War, Freedom, Ye Olde America, American History">
+    <meta name="author" content="Colonial Heritage Foundation">
+    <meta charset="UTF-8">
+
+    
+    <link rel="icon" type="image/jpeg" href="/static/homepage/media/flag1.jpg"/>
+
+    ## add any site-wide scripts or CSS here; for example, jquery:
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="${ STATIC_URL }homepage/media/jquery.form.js"></script>
+    <script src="${ STATIC_URL }homepage/media/jquery.loadmodal.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/homepage/styles/style.css"/>
+
+    ## render the css with the same name as this page
+    ${ static_renderer.get_template_css(request, context)  }
+
+</head>
+<body>
+
+<header class="top">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/homepage/">Colonial Heritage Foundation</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown" id="test1">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Shop<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/homepage/product/">Products</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/homepage/rental/">Rentals</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/homepage/mto_product/">Made-to-Order</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Events<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/homepage/event/">Events</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/homepage/area/">Areas</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Admin<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/homepage/overdue_rental/">Overdue Items</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/homepage/user/">Users</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/homepage/rental_return/">Rental Return</a></li>
+                        </ul>
+                    </li>
+                </ul>
+##                <form class="navbar-form navbar-left" role="search">
+##                    <div class="form-group">
+##                        <input type="text" class="form-control" placeholder="Search">
+##                    </div>
+##                    <button type="submit" class="btn btn-default">Submit</button>
+##                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            %if request.user.is_authenticated():
+                                ${ "Welcome, " + request.user.first_name +' '+ request.user.last_name }
+                                <span class="caret"></span></a>
+                                    <ul class = "dropdown-menu" role="menu">
+                                        <li><a href="/homepage/account/${ request.user.id }/${ request.user.address_id }">Account</a></li>
+                                        <li><a href="/homepage/login.logout">Sign Out</a></li>
+                                    </ul>
+                            %else:
+                                ${ "Not Signed In" }
+                                <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href id="show_login_dialog" data-toggle="modal" data-target="#login_dialog">Sign In</a></li>
+                                        <li><a href="/homepage/user.create/">Create Account</a></li>
+                                    </ul>
+                            %endif
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</header>
+
+<div id="center">
+    <%block name="content">
+        Site content goes here in sub-templates.
+    </%block>
+</div>
+
+    ## render the JS with the same name as this page
+    ${ static_renderer.get_template_js(request, context) }
+<!-- Modal -->
+  <div class="modal fade" id="shoppingCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Shopping Cart</h4>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Continue Shopping</button>
+          <button id="checkout_button" type="button" class="btn btn-primary">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<footer class="footer_center_bottom">
+    <span id="log_current_date">${ datetime.datetime.now() }</span>
+##    <a href="/homepage/about/">About</a>
+##    <span>  |  </span>
+##    <a href="/homepage/contact/">Contact</a>
+</footer>
+
+<!-- javascript -->
+##<script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+</html>

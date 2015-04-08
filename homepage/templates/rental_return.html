@@ -1,0 +1,15 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+    ${ error }
+    ${ success }
+        <form id="loginform" method="POST" action="${ action }">
+            <table>
+                ${ form }
+            </table>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+</%block>
+</body>
+</html>

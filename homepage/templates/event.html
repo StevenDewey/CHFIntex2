@@ -1,0 +1,35 @@
+<%inherit file="base.htm" />
+
+<html>
+<body>
+<<<<<<< HEAD
+    <%block name="content">
+
+        <head>
+            <title>Events</title>
+        </head>
+
+<div class="text-right">
+</div>
+    <div class="tableContain">
+    <h1>Events</h1>
+        <div id="Displayevents">
+            <div class="displaystuff">
+            %for event in events:
+                <div class="eventstuff">
+                    <div class="eventDiv">
+                        <a href="/homepage/event_detail/${ event.id }">
+                          <img src="${ event.photo.image }"/>
+                          <div class="mid"> ${ event.name }</div>
+                        </a><br>
+                        <p><b>Dates:</b> ${ event.start_date } - ${ event.end_date }</p>
+                        <p><b>Venue:</b> ${ event.venue_name }</p>
+                    </div>
+                </div>
+            %endfor
+            </div>
+        </div>
+    </div>
+ </%block>
+</body>
+</html>

@@ -1,0 +1,45 @@
+.eventDiv {
+	display: inline-block;
+    height: 300px;
+	width: 250px;
+	background-color: #ededed;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+}
+
+.eventstuff{
+	display: inline;
+	height: 400px;
+}
+
+.mid {
+	text-align: center;
+  font-weight: bold;
+}
+
+.eventDiv:hover {
+	background-color: #e4e4e4;
+}
+
+img {
+	max-height: 150px;
+	max-width: 150px;
+	margin-bottom: 10px;
+    margin-top: 10px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 5px;
+}
+
+a {
+	z-index: 10;
+}
+
+button {
+	z-index: 100;
+}
