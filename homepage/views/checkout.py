@@ -77,7 +77,7 @@ def process_cc(request):
             ##Jong's Email Idea:
             user_email = request.user.email
             emailbody = templater.render(request, 'checkout_rental_email.html', params)
-            send_mail("Thank You -- CHF Receipt", emailbody, 'kblestarge@gmail.com', [user_email], html_message=emailbody, fail_silently=False)
+            send_mail("Thank You -- CHF Receipt", emailbody, 'Support@chf2015.com', [user_email], html_message=emailbody, fail_silently=False)
 
             return HttpResponseRedirect('/homepage/thank_you/')
 
@@ -98,6 +98,6 @@ def process_cc(request):
             ##Jong's Email Idea:
             user_email = request.user.email
             emailbody = templater.render(request, 'checkout_product_email.html', params)
-            send_mail("Thank You -- CHF Receipt", emailbody, 'kblestarge@gmail.com', [user_email], html_message=emailbody, fail_silently=False)
+            send_mail("Thank You -- CHF Receipt", emailbody, 'Support@chf2015.com', [user_email], html_message=emailbody, fail_silently=False)
 
             return HttpResponseRedirect('/homepage/thank_you/')

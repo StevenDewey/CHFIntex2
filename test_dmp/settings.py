@@ -151,10 +151,10 @@ DMP_TEMPLATES_DIRS = [
 ]
 
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'thecolonialfoundation@gmail.com'
-EMAIL_HOST_PASSWORD = 'Lucky#7!'
+EMAIL_USE_TLS = False
+EMAIL_HOST = 'smtp.chf2015.com'
+EMAIL_HOST_USER = 'Support@chf2015.com'
+EMAIL_HOST_PASSWORD = 'Lucky7!'
 EMAIL_PORT = 587
 
 ###  End of settings for the base_app Controller

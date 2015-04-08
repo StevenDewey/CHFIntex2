@@ -54,7 +54,7 @@ def batch_email(request):
     emailbody = templater.render(request, 'overdue_notification.html', params)
 
     for r in overdue_rentals:
-        send_mail("Overdue Rental", emailbody, 'kblestarge@gmail.com', [r.order.customer.email], html_message=emailbody, fail_silently=False)
+        send_mail("Overdue Rental", emailbody, 'Support@chf2015.com', [r.order.customer.email], html_message=emailbody, fail_silently=False)
 
 
     return HttpResponseRedirect('/homepage/overdue_rental.success/')
