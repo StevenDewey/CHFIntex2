@@ -10,11 +10,6 @@ $(function () {
         });
     });
 
-    $('#checkout_button').on('click', function(){
-        window.location.href = '/homepage/checkout/'
-    });//click
-
-
 //mouse-over nav bar drop-downs
     //$('li.dropdown').hover(
     //    function() {

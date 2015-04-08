@@ -113,7 +113,7 @@ id_counter = 0
 for data in [
 
     ["Jayson", "Jensen", "jayson", "jayson", "jensenjb21@gmail.com", False, "Am I cool?", "yes", "801-324-4233", 1, 5, 1],
-    ["Macey", "Vogt", "macey", "macey", "macey@ymail.com", False, "Whos my daddy?", "Gerald", "801-624-4433", 2, 5, 4],
+    ["Macey", "Vogt", "macey", "macey", "davidericvogt@gmail.com", False, "Whos my daddy?", "Gerald", "801-624-4433", 2, 5, 4],
     ["David", "Vogt", "david", "david", "davidericvogt@gmail.com", False, "How old am I?", "43", "801-324-4433",2, 5, 3],
     ["Steven", "Dewey", "steven", "steven", "s.dewey1@gmail.com", False, "Whats my favorite color?", "pink", "801-384-4433", 3, 5, 2],
     ["Bucky", "LeStarge", "kevin", "kevin", "kblestarge@gmail.com", True, "Am I cool?", "Heck yes", "801-324-4733", 4, 5, 1],

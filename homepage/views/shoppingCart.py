@@ -4,6 +4,9 @@ from django_mako_plus.controller import view_function
 from .. import dmp_render, dmp_render_to_response
 import homepage.models as hmod
 
+global ptype
+ptype = "product"
+
 @view_function
 def process_request(request):
     params = {}
@@ -20,6 +23,7 @@ def add(request):
     ##print(request.session['shopCartDict'])
     params = {}
 
+    request.session['ptype'] = "product"
 
     if 'shopCartDict' not in request.session:
         request.session['shopCartDict'] = {}

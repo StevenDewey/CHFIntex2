@@ -20,10 +20,10 @@ def add(request):
     ##print(request.session['shopCartDict'])
     params = {}
 
-    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>rentalShoppingCart.py add method working #1")
+    request.session['ptype'] = "rental"
+
     if 'rentalShopCartDict' not in request.session:
         request.session['rentalShopCartDict'] = {}
-    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>rentalShoppingCart.py add method working #2")
     # print(request.session['shopping_cart'])
     # fav_color = request.session.pop('shopping_cart')
 
@@ -36,30 +36,20 @@ def add(request):
     else:
         request.session['rentalShopCartDict'][pid] = int(dur)
     request.session.modified = True
-    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-    print(request.session['rentalShopCartDict'])
     rentalProductDictionary = {}
     ##quantity = []
-    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>rentalShoppingCart.py add method working #3")
-    print(pid)
     
     orderTotal = 0
     for k,v in request.session['rentalShopCartDict'].items():
         rentalProductObject = hmod.RentalProduct.objects.get(id=k)
         rentalProductDictionary[rentalProductObject] = int(v)
         orderTotal += (rentalProductObject.price_per_day * v)
-    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>rentalShoppingCart.py add method working #4")
-    
 
     params['rentalProducts'] = rentalProductDictionary
     params['orderTotal'] = orderTotal
     ##params['quantities'] = quantity
-    print(request.session['rentalShopCartDict'])
     ##request.session.flush()
-    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>rentalShoppingCart.py add method working #5")    
     return dmp_render_to_response(request, 'rentalShoppingCart.html', params)
-    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>rentalShoppingCart.py add method working #6")
-    
 
 @view_function
 def updateDuration(request):
@@ -74,7 +64,6 @@ def updateDuration(request):
     # else:
     request.session['rentalShopCartDict'][pid] = int(dur)
     request.session.modified = True
-    print(request.session['rentalShopCartDict'])
     # productDictionary = {}
     # ##quantity = []
     # for k,v in request.session['shopCartDict'].items():
