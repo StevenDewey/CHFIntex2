@@ -24,84 +24,49 @@ def process_request(request):
 
 @view_function
 def create(request):
-    template_vars = {}
+    params = {}
 
     # class MyModelChoiceField(ModelChoiceField):
     #     def label_from_instance(self, obj):
     #         return "%i" % obj.id
 
     class UserEditForm(forms.Form):
-        username = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        username = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'id': "inputError1"}))
         password = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'class': 'form-control'}))#, widget=forms.PasswordInput)
         first_name = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
         last_name = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-        email = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-        # security_question = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-        # security_answer = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-        # phone = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-        def clean_username(self):
-            return self.cleaned_data['username']
-
-
-    # form = UserEditForm(initial={
-    #     'username': user.username,
-    #     'password': user.password,
-    #     'first_name': user.first_name,
-    #     'last_name': user.last_name,
-    #     'email': user.email,
-    #     # 'security_question': user.security_question,
-    #     # 'security_answer': user.security_answer,
-    #     # 'phone': user.phone,
-    # })
-
-    # if request.method == 'POST':
-    form = UserEditForm(request.POST)
-    if form.is_valid():
-        '''Create a new user'''
-        user = hmod.User()
-        user.username = form.cleaned_data['username']
-        user.set_password(form.cleaned_data['password'])
-        user.first_name = form.cleaned_data['first_name']
-        user.last_name = form.cleaned_data['last_name']
-        user.email = form.cleaned_data['email']
-        # user.security_question = form.cleaned_data['security_question']
-        # user.security_answer = form.cleaned_data['security_answer']
-        # user.phone = form.cleaned_data['phone']
-
-        user.save()
-
-        user = authenticate(username=form.cleaned_data['username'],
-                            password=form.cleaned_data['password'])
-        login(request, user)
-        return HttpResponseRedirect('/homepage')
-
-    template_vars['form'] = form
-    return templater.render_to_response(request, 'user.create.html', template_vars)
+        email = forms.CharField(required=True, max_length=100, widget=forms.EmailInput(attrs={'class': 'form-control'}))
 
 
 
+    form = UserEditForm()
 
-    # '''Creates a new user'''
-    # user = hmod.User()
-    # # address = hmod.Address()
-    # user.username = ''
-    # user.password = ''
-    # user.first_name = ''
-    # user.last_name = ''
-    # user.email = ''
-    # # user.security_question = 'sdfsdfs'
-    # # user.security_answer = 'odifjsid'
-    # # user.phone = '800-800-8000'
-    # # address.street1 = ''
-    # # address.street2 = ''
-    # # address.city = ''
-    # # address.state = ''
-    # # address.zip_code = ''
-    # # address.country = ''
-    # # address.save()
-    # user.save()
-    #
-    # return HttpResponseRedirect('/homepage/user.create_edit/{}/'.format(user.id))
+    if request.method == 'POST':
+        form = UserEditForm(request.POST)
+        if form.is_valid():
+            '''Create a new user'''
+            user = hmod.User()
+            user.username = form.cleaned_data['username']
+            user.set_password(form.cleaned_data['password'])
+            user.first_name = form.cleaned_data['first_name']
+            user.last_name = form.cleaned_data['last_name']
+            user.email = form.cleaned_data['email']
+
+            user.save()
+
+            user = authenticate(username=form.cleaned_data['username'],
+                                password=form.cleaned_data['password'])
+            login(request, user)
+            return HttpResponseRedirect('/homepage')
+        else:
+            params['error'] = "<p class='bg-danger'>All fields are required</p>"
+            params['form'] = form
+            return templater.render_to_response(request, 'user.create.html', params)
+
+    params['error'] = ''
+    params['form'] = form
+    return templater.render_to_response(request, 'user.create.html', params)
+
 
 @view_function
 # @permission_required('homepage.change_user', login_url='/homepage/invalid_permissions/')

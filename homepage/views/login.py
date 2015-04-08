@@ -38,8 +38,8 @@ class LoginForm(forms.Form):
     def clean(self):
         user = authenticate(username=self.cleaned_data['username'],
                             password=self.cleaned_data['password'])
-        #if user == None:
-        #    raise forms.ValidationError('Incorrect username or password')
+        if user == None:
+           raise forms.ValidationError('Incorrect username or password')
         return self.cleaned_data
 
 @view_function

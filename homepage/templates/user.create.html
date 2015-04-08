@@ -7,6 +7,7 @@
             <h1> Create Account <small></small></h1>
             </div>
             <span id="id_username_message_valid"></span><span id="id_username_message_invalid"></span>
+            ${error}
             %for field in form:
                 <div class="form-group">
                     <label for=${field.name}>${field.name}</label>
