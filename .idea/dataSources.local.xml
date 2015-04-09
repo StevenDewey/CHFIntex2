@@ -2,14 +2,9 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Django default" uuid="ef5cd885-ccd1-4579-bde2-47216c678ce7">
-      <first-sync>true</first-sync>
       <user-name>postgres</user-name>
       <user-password>dfe6dfdfdfc9dfc1dfd3df9ddf8b</user-password>
     </data-source>
-    <data-source name="Django default2" uuid="bf9fb1ef-2e97-44a5-8216-7abdbf37d23f">
-      <first-sync>true</first-sync>
-      <user-name>postgres</user-name>
-      <user-password>dfc0df98dfc4dfc4dfcbdfc8dfc1dfce</user-password>
-    </data-source>
+    <data-source name="Django default2" uuid="bf9fb1ef-2e97-44a5-8216-7abdbf37d23f" />
   </component>
 </project>

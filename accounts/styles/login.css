@@ -1,0 +1,26 @@
+h3{
+	padding: 20px;
+}
+h4{
+	vertical-align: bottom;
+	float: right;
+	display: inline-block;
+	padding-top:10px;
+}
+
+h1{
+
+	display: inline-block;
+}
+
+button {
+ 	margin-left: 80px;
+}
+
+td, label {
+	padding-top: 20px;
+}
+
+.page-header {
+	margin-top: 0px;
+}

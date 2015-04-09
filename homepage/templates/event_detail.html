@@ -1,6 +1,11 @@
 <%inherit file="base.htm" />
 
 <%block name="content">
+
+<head>
+    <title>Event Detail</title>
+</head>
+
     <a href="/homepage/event"><button class="right btn btn-primary">Back To Events</button></a>
     <div id="event_detail_div">
         <div class="eventImageDiv">
@@ -16,7 +21,7 @@
         <hr color="#c7c34c" size="2" width="50%">
         <h1>Areas</h1>
         %for area in areas:
-          <a href="/homepage/area_detail/${ area.id }">
+          <a href="/homepage/area_detail/${ area.id }/${ event.id }">
             <div class="areaDiv">
               <p> ${ area.name }</p>
               <img src="${ area.photo.image }"/>

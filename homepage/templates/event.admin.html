@@ -1,0 +1,41 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+    <head>
+        <title>Events</title>
+    </head>
+
+    <div class="page-header">
+        <h1> Events <small></small></h1>
+    </div>
+    <a href="/homepage/event.create/" class="btn btn-warning create_new_btn" style="margin-bottom: 10px">Create New Event</a>
+    <table id="user_table" class="table table-bordered table-hover">
+        <tr>
+            <th>  </th>
+            <th> ID </th>
+            <th> Name </th>
+            <th> Description </th>
+            <th> Start Date </th>
+            <th> End Date </th>
+            <th> Map File Name </th>
+            <th> Venue Name </th>
+        </tr>
+        %for event in events:
+            <tr>
+                <td>
+                    <a href="/homepage/event.edit/${ event.id }/">Edit</a>
+                    <span> | </span>
+                    <a href="/homepage/event.delete/${ event.id }/">Delete</a>
+                </td>
+                <td>${ event.id }</td>
+                <td>${ event.name }</td>
+                <td>${ event.description }</td>
+                <td>${ event.start_date }</td>
+                <td>${ event.end_date }</td>
+                <td>${ event.map_file_name }</td>
+                <td>${ event.venue_name }</td>
+            </tr>
+        %endfor
+    </table>
+</%block>
