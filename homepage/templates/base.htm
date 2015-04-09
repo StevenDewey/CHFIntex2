@@ -81,17 +81,43 @@
                             <li><a href="/homepage/event/">Events</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Admin<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/homepage/overdue_rental/">Overdue Items</a></li>
-                            <li class="divider"></li>
-                            <li><a href="/homepage/user/">Users</a></li>
-                            <li class="divider"></li>
-                            <li><a href="/homepage/rental_return/">Rental Return</a></li>
-                        </ul>
-                    </li>
+                    %if request.user.has_perm('homepage.delete_user'):
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Admin<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/homepage/overdue_rental/">Overdue Items</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/homepage/user/">Users</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/homepage/rental_return/">Rental Return</a></li>
+                            </ul>
+                        </li>
+                    %elif request.user.has_perm('homepage.change_user'):
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Manager<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/homepage/overdue_rental/">Overdue Items</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/homepage/user/">Users</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/homepage/rental_return/">Rental Return</a></li>
+                            </ul>
+                        </li>
+                    %elif request.user.has_perm('homepage.add_user'):
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Agent<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/homepage/overdue_rental/">Overdue Items</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/homepage/user/">Users</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/homepage/rental_return/">Rental Return</a></li>
+                            </ul>
+                        </li>
+                    %endif
                 </ul>
                 ##                <form class="navbar-form navbar-left" role="search">
                 ##                    <div class="form-group">
