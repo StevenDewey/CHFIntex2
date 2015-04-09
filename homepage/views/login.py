@@ -35,15 +35,17 @@ class LoginForm(forms.Form):
     password = forms.CharField(label="Password", widget=forms.TextInput(attrs={'class': 'form-control', 'type': 'password'}))
                                # , widget=forms.PasswordInput
 
-    def clean(self):
-        user = authenticate(username=self.cleaned_data['username'],
-                            password=self.cleaned_data['password'])
-        #if user == None:
-         #  raise forms.ValidationError('Incorrect username or password')
-        return self.cleaned_data
+    # def clean(self):
+    #     user = authenticate(username=self.cleaned_data['username'],
+    #                         password=self.cleaned_data['password'])
+    #     #if user == None:
+    #      #  raise forms.ValidationError('Incorrect username or password')
+    #     return self.cleaned_data
 @view_function
 def loginform(request):
     params = {}
+
+    params['error'] = ""
     form = LoginForm()
     print("<<<<<<<<<<<<<<<<<<<")
     if request.method == 'POST':
@@ -103,16 +105,23 @@ def loginform(request):
                     #print(newuser)
             except:
                 pass
-            print("<<<<<<<<<<<<<<<<<< would have tried to log in here")
-            user = authenticate(username=newUserName,
-                     password=newPassword)
-            login(request, user)
+            try:
+                print("<<<<<<<<<<<<<<<<<< would have tried to log in here")
+                user = authenticate(username=newUserName,
+                         password=newPassword)
+                login(request, user)
 
-            return HttpResponse('''
-            <script>
-                window.location.href = window.location.href;
-            </script>
-            ''')
+                return HttpResponse('''
+                <script>
+                    window.location.href = window.location.href;
+                </script>
+                ''')
+            except:
+                params['error'] = "<p class='bg-danger'>Incorrect Username or Password</p>"
+        else:
+            params['error'] = ""
+            params['form'] = form
+            return templater.render_to_response(request, 'login.loginform.html', params)
 
     params['form'] = form
     return templater.render_to_response(request, 'login.loginform.html', params)
