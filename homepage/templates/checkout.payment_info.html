@@ -1,0 +1,30 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+<head>
+    <title>Products</title>
+</head>
+
+<div class="content">
+    <h3>Checkout - Payment Info</h3>
+    <h4>Credit Card Information</h4>
+    <form method="POST">
+        Credit Card Number:<br>
+        <input type="text" name="card_number">
+        <br>
+        Expiration Date:<br>
+        <input type="text" name="exp_date">
+        <br>
+        CVV:<br>
+        <input type="text" name="cvv">
+        <br>
+        Name on Card:<br>
+        <input type="text" name="cvv">
+        <br>
+    </form>
+    <br>
+    <button data-addr=address_id id="process_payment_btn" class="btn btn-warning">Process Payment</button>
+</div>
+
+</%block>

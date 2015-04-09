@@ -15,11 +15,7 @@ $(function () {
         })
     });
 
-    $('#process_payment_btn').on('click', function() {
-        window.location.href = '/homepage/checkout.process_cc/'
-    })
-
     $('#checkout_next_btn').on('click', function() {
-        window.location.href = '/homepage/checkout.payment_info/'
-    })
+        window.location.href = '/homepage/checkout.payment_info/';
+    });
 });//ready

@@ -38,7 +38,6 @@ def create(request):
         email = forms.CharField(required=True, max_length=100, widget=forms.EmailInput(attrs={'class': 'form-control'}))
 
 
-
     form = UserEditForm()
 
     if request.method == 'POST':
