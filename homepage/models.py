@@ -157,7 +157,7 @@ class ProductSpecification(models.Model):
     production_time = models.TextField(max_length=200, null=True)
     category = models.ForeignKey(Category, related_name='+')
     vendor = models.ForeignKey(User, null=True)
-    photo = models.OneToOneField(Photograph, null=True)
+    photo = models.ForeignKey(Photograph, null=True)
     area = models.ForeignKey(Area, null=True)
 
     def __str__(self):
@@ -174,7 +174,7 @@ class StockedProduct(PolymorphicModel):
     quantity_on_hand = models.IntegerField()
     shelf_location = models.TextField(max_length=40)
     order_file = models.TextField(null=True)
-    photo = models.ForeignKey(Photograph, null=True)
+    # photo = models.ForeignKey(Photograph, null=True)
     product_specification = models.ForeignKey(ProductSpecification, related_name='+')
 
     def __str__(self):
