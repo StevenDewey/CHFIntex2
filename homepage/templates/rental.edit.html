@@ -4,14 +4,13 @@
     <div class="content">
         <form method="POST">
             <div class="page-header">
-            <h1> Rental Edit Form <small></small></h1>
+            <h1> Rental Item Edit Form <small></small></h1>
             </div>
-            %for field in form:
                 <div class="form-group">
-                    <label for=${field.name}>${field.name}</label>
-                    ${field}
+##                    <label for=${field.name}>${field.name}</label>
+                    ${form}
                 </div>
-            %endfor
+##            %endfor
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
     </div>

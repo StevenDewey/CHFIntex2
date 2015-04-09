@@ -20,92 +20,110 @@ def process_request(request):
 
     return templater.render_to_response(request, 'rental.html', params)
 
+@view_function
+def admin(request):
+    params = {}
+
+    rentals = hmod.RentalProduct.objects.all()
+    params['rentals'] = rentals
+
+    return templater.render_to_response(request, 'rental.admin.html', params)
 
 @view_function
-@permission_required('homepage.change_rental', login_url='/homepage/invalid_permissions/')
+# @permission_required('homepage.change_rental', login_url='/homepage/invalid_permissions/')
 def edit(request):
     params = {}
 
     try:
-        rental = hmod.Rental.objects.get(id=request.urlparams[0])
-    except hmod.Rental.DoesNotExist:
-        return HttpResponseRedirect('/homepage/rental/')
-
-    class PersonModelChoiceField(ModelChoiceField):
-        def label_from_instance(self, obj):
-            return str(obj.id) + " - " + obj.given_name + " " + obj.family_name
-
-    class OrganizationModelChoiceField(ModelChoiceField):
-        def label_from_instance(self, obj):
-            return str(obj.id) + " - " + obj.given_name + " - " + obj.organization_type
+        rental = hmod.RentalProduct.objects.get(id=request.urlparams[0])
+    except hmod.RentalProduct.DoesNotExist:
+        return HttpResponseRedirect('/homepage/rental.admin/')
 
     class RentalEditForm(forms.Form):
-        rental_time = forms.DateTimeField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
-        discount_percent = forms.DecimalField(max_digits=10, decimal_places=4, required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
-        Organization_id = OrganizationModelChoiceField(
-            queryset=hmod.Organization.objects.all(), empty_label=None,
-            widget=forms.Select(attrs={'class': 'form-control'})
-        )
-        Person_id = PersonModelChoiceField(
-            queryset=hmod.Person.objects.all(), empty_label=None,
-            widget=forms.Select(attrs={'class': 'form-control'})
-        )
-        Agent_id = PersonModelChoiceField(
-            queryset=hmod.Agent.objects.all(), empty_label=None,
-            widget=forms.Select(attrs={'class': 'form-control'})
-        )
+        Name = forms.CharField(required=True, max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        Description = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        PriceDay = forms.DecimalField(max_digits=10, decimal_places=2, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        ReplacementPrice = forms.DecimalField(max_digits=10, decimal_places=2, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        # ImagePath = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     form = RentalEditForm(initial={
-        'rental_time': rental.rental_time,
-        'discount_percent': rental.discount_percent,
-        'Organization_id': rental.Organization_id,
-        'Person_id': rental.Person_id,
-        'Agent_id': rental.Agent_id,
+        'Name': rental.product_specification.name,
+        'Description': rental.product_specification.description,
+        'PriceDay': rental.price_per_day,
+        'ReplacementPrice': rental.replacement_price,
+        # 'ImagePath': rental.product_specification.photo.image,
     })
     if request.method == 'POST':
         form = RentalEditForm(request.POST)
         if form.is_valid():
-            rental.rental_time = form.cleaned_data['rental_time']
-            rental.discount_percent = form.cleaned_data['discount_percent']
-            rental.Organization_id = form.cleaned_data['Organization_id']
-            rental.Person_id = form.cleaned_data['Person_id']
-            rental.Agent_id = form.cleaned_data['Agent_id']
+            rental.product_specification.name = form.cleaned_data['Name']
+            rental.product_specification.description = form.cleaned_data['Description']
+            rental.price_per_day = form.cleaned_data['PriceDay']
+            rental.replacement_price = form.cleaned_data['ReplacementPrice']
+            # rental.product_specification.photo.image = form.cleaned_data['ImagePath']
             rental.save()
-            return HttpResponseRedirect('/homepage/rental/')
+            return HttpResponseRedirect('/homepage/rental.admin/')
 
     params['form'] = form
     return templater.render_to_response(request, 'rental.edit.html', params)
 
 
 @view_function
-@permission_required('homepage.add_rental', login_url='/homepage/invalid_permissions/')
+# @permission_required('homepage.add_rental', login_url='/homepage/invalid_permissions/')
 def create(request):
+    params = {}
+
+    class RentalEditForm(forms.Form):
+        Name = forms.CharField(required=True, max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        Description = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        PriceDay = forms.DecimalField(max_digits=10, decimal_places=2, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        ReplacementPrice = forms.DecimalField(max_digits=10, decimal_places=2, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        # ImagePath = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     '''Creates a new rental'''
-    rental = hmod.Rental()
-    rental.rental_time = '2015-01-01 06:00:00'
-    rental.discount_percent = 00.10
-    # try:
-    #     Organization = hmod.Organization.objects.first()
-    # except Organization.DoesNotExist:
-    #     return HttpResponseRedirect('/homepage/organization.create/')
-    rental.Organization_id = hmod.Organization.objects.first().id
-    rental.Person_id = hmod.Person.objects.first().id
-    rental.Agent_id = hmod.Agent.objects.first().id
-    rental.save()
+    form = RentalEditForm()
 
-    return HttpResponseRedirect('/homepage/rental.edit/{}/'.format(rental.id))
+    if request.method == 'POST':
+        form = RentalEditForm(request.POST)
+        if form.is_valid():
+
+            ProdSpec = hmod.ProductSpecification()
+            ProdSpec.description = form.cleaned_data['Description']
+            ProdSpec.name = form.cleaned_data['Name']
+            ProdSpec.type = "rental"
+            ProdSpec.category_id = 1
+            ProdSpec.save()
+            ProdSpec.Sku = ProdSpec.id
+            ProdSpec.save()
+
+            rental = hmod.RentalProduct()
+            rental.cost = 10.00
+            rental.quantity_on_hand = 1
+            rental.shelf_location = 2
+            rental.product_specification = ProdSpec
+            rental.price_per_day = 22.22
+            rental.replacement_price = 22.22
+            rental.times_rented = 0
+            rental.price_per_day = form.cleaned_data['PriceDay']
+            rental.replacement_price = form.cleaned_data['ReplacementPrice']
+            # rental.product_specification.photo.image = form.cleaned_data['ImagePath']
+            rental.save()
+
+            return HttpResponseRedirect('/homepage/rental.admin/')
+
+    params['form'] = form
+    return templater.render_to_response(request, 'rental.edit.html', params)
 
 @view_function
-@permission_required('homepage.delete_rental', login_url='/homepage/invalid_permissions/')
+# @permission_required('homepage.delete_rental', login_url='/homepage/invalid_permissions/')
 def delete(request):
 
-    '''delete an rental'''
+    # delete an rental
     try:
-        rental = hmod.Rental.objects.get(id=request.urlparams[0])
-    except hmod.Rental.DoesNotExist:
-        return HttpResponseRedirect('/homepage/rental/')
+        rental = hmod.RentalProduct.objects.get(id=request.urlparams[0])
+    except hmod.RentalProduct.DoesNotExist:
+        return HttpResponseRedirect('/homepage/rental.admin/')
 
     rental.delete()
 
-    return HttpResponseRedirect('/homepage/rental/'.format(rental.id))
+    return HttpResponseRedirect('/homepage/rental.admin/')
