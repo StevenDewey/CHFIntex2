@@ -20,7 +20,6 @@ def process_request(request):
         return HttpResponseRedirect('/accounts/login.logincheckoutptone/')
     params = {}
 
-<<<<<<< HEAD
     # this is where we add the shipping address to the database
 
     class AddressForm(forms.Form):
@@ -60,9 +59,6 @@ def process_request(request):
     params['form'] = form
     return templater.render_to_response(request, 'checkout.ship_address.html', params)
 
-=======
-    return templater.render_to_response(request, 'checkout.html', params)
->>>>>>> master
 
 @view_function
 def payment_info(request):
