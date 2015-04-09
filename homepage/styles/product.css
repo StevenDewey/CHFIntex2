@@ -63,6 +63,36 @@ button {
 }
 
 img {
-	max-height: 50px;
-	max-width: 50px;
+	max-height: 200px;
+	max-width: 200px;
+}
+
+.item img {
+	max-height: 100%;
+	max-width: 100%;
+	/*padding-left: 10%;
+	padding-right: 5%;*/
+
+}
+.item {
+	height: 400px;
+	width: 600px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#carousel-outside {
+	height: 450px;
+	width: 100%;
+	margin-bottom: 20px;
+
+}
+.carousel-inner {
+	max-width: 800px;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 150px;
+	margin-top: 50px;
+
 }
