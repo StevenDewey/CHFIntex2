@@ -104,7 +104,7 @@ class Area(models.Model):
 class Order(models.Model):
     order_date = models.DateTimeField()
     phone = models.TextField()
-    date_packed = models.DateTimeField()
+    date_packed = models.DateTimeField(null=True)
     date_paid = models.DateTimeField(null=True)
     date_shipped = models.DateTimeField(null=True)
     tracking_number = models.TextField(max_length=50, null=True)

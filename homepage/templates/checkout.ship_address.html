@@ -3,44 +3,24 @@
 <%block name="content">
 
 <head>
-    <title>Products</title>
+    <title>Checkout</title>
 </head>
 
 <div class="content">
-    <h3>Checkout Page</h3>
-    <h4>Credit Card Information</h4>
-    <form>
-        Credit Card Number:<br>
-        <input type="text" name="card_number">
-        <br>
-        Expiration Date:<br>
-        <input type="text" name="exp_date">
-        <br>
-        CVV:<br>
-        <input type="text" name="cvv">
-        <br>
+    <h3>Checkout</h3>
+    <form method="POST">
+        <div class="page-header">
+            <h1> Shipping Address </h1>
+        </div>
+        %for field in form:
+            <div class="form-group">
+                <label for=${field.name}>${field.name}</label>
+                ${field}
+            </div>
+        %endfor
+        <button data-addr= address_id id="checkout_next_btn" class="btn btn-warning">Next</button>
     </form>
-    <h4>Shipping Address</h4>
-    <form>
-        Street1:<br>
-        <input type="text" name="card_number">
-        <br>
-        Street2:<br>
-        <input type="text" name="exp_date">
-        <br>
-        City:<br>
-        <input type="text" name="cvv">
-        <br>
-        State:<br>
-        <input type="text" name="cvv">
-        <br>
-        Zip:<br>
-        <input type="text" name="cvv">
-        <br>
-    </form>
-    <br>
-
-      <button id="process_payment_btn" data-ptype = ptype class="btn btn-warning">Process Payment</button>
+</div>
 
 %if request.user.is_authenticated():
     <p></p>
