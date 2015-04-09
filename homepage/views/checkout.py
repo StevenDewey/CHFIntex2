@@ -50,11 +50,12 @@ def process_request(request):
             return templater.render_to_response(request, 'checkout.payment_info.html', params)
 
         else:
-            params['error'] = "<p class='bg-danger'>Fields are required</p>"
+            params['error'] = "<p class='bg-danger'>All fields except street2 are required</p>"
             params['form'] = form
             return templater.render_to_response(request, 'checkout.ship_address.html', params)
 
     # return templater.render_to_response(request, 'checkout.payment_info.html', params)
+    params['error'] = ''
     params['form'] = form
     return templater.render_to_response(request, 'checkout.ship_address.html', params)
 
