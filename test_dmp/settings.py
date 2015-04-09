@@ -155,6 +155,7 @@ EMAIL_USE_TLS = False
 EMAIL_HOST = 'smtp.chf2015.com'
 EMAIL_HOST_USER = 'Support@chf2015.com'
 EMAIL_HOST_PASSWORD = 'Lucky7!'
+DEFAULT_FROM_EMAIL = 'Support@chf2015.com'
 EMAIL_PORT = 587
 
 ###  End of settings for the base_app Controller
