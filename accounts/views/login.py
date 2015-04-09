@@ -21,6 +21,7 @@ def logincheckoutptone(request):
 # def loginform(request):
     params = {}
 
+    params['error'] = ""
     form = LoginForm()
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -38,12 +39,12 @@ class LoginForm(forms.Form):
     password = forms.CharField(label="Password", widget=forms.TextInput(attrs={'class': 'form-control', 'type': 'password'}))
                                # , widget=forms.PasswordInput
 
-    def clean(self):
-        user = authenticate(username=self.cleaned_data['username'],
-                            password=self.cleaned_data['password'])
+    # def clean(self):
+    #     user = authenticate(username=self.cleaned_data['username'],
+    #                         password=self.cleaned_data['password'])
         #if user == None:
          #  raise forms.ValidationError('Incorrect username or password')
-        return self.cleaned_data
+        # return self.cleaned_data
 @view_function
 def logincheckoutpttwo(request):
     form = LoginForm()
@@ -68,9 +69,19 @@ def logincheckoutpttwo(request):
                 #print(newuser)
             except:
                 pass
-            user = authenticate(username=newUserName,
-                     password=newPassword)
-            login(request, user)
+            try:
+                user = authenticate(username=newUserName,
+                         password=newPassword)
+                login(request, user)
+            except:
+                params['error'] = "<p class='bg-danger'>Incorrect Username or Password</p>"
+                params['form'] = form
+                return templater.render_to_response(request, 'login.html', params)
+        else:
+            params['error'] = ""
+            params['form'] = form
+            return templater.render_to_response(request, 'login.html', params)
+
         print("inner")
     print("outer")
     return HttpResponseRedirect('/homepage/checkout')

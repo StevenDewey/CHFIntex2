@@ -6,11 +6,12 @@
          <title>Login</title>
     </head>
 
+    ${ error }
     <form id="loginform" method="POST" action="/homepage/login.loginform">
         <table>
             ${form}
         </table>
-        <div>
+        <div class="sub">
             <input id="login_submit" type = "submit"/>
             <a href="/homepage/user.create/">Or click here to create an account</a>
             <br>
