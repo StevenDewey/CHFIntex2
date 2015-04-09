@@ -12,9 +12,8 @@ templater = get_renderer('homepage')
 
 ############################################################
 #### Display Checkout Form with Items in Shopping Cart
-#@login_required(login_url='/homepage/login/',redirect_field_name='')
+
 @view_function
-# @login_required(login_url='/homepage/checkout.login/')
 def process_request(request):
     if not request.user.is_authenticated():
         return HttpResponseRedirect('/accounts/login.logincheckoutptone/')

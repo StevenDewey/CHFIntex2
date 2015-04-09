@@ -98,12 +98,25 @@ admin = Group.objects.get(name="Admin")
 admin.permissions = Permission.objects.all()
 admin.save()
 
+countPermissions = Permission.objects.count()
+y = 3
+managerList = []
+while y<=countPermissions:
+    managerList.append(y)
+    y = y + 3
+print(managerList)
 manager = Group.objects.get(name="Manager")
-manager.permissions = Permission.objects.all().exclude(id=24) #Just can't delete Users
+manager.permissions = Permission.objects.all().exclude(id__in=managerList) #Just can't delete Users
 manager.save()
 
 agent = Group.objects.get(name="Agent")
-agent.permissions = Permission.objects.all().exclude(id=3) ##I want this to exclude all id's of the multiple 3 so the Agent can't delete anything.
+x = 1
+agentList = []
+while x<countPermissions-1:
+    agentList.append(x)
+    x = x + 3
+print(agentList)
+agent.permissions = Permission.objects.filter(id__in=agentList) ##I want this to exclude all id's of the multiple 3 so the Agent can't delete anything.  
 agent.save()
 
 ###################################    USERS
