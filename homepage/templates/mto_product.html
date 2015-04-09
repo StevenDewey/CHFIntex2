@@ -1,35 +1,38 @@
 <%inherit file="base.htm" />
 
-<html>
 <head>
-
+    <title>Made to Order Products</title>
 </head>
-<body>
-    <%block name="content">
-        <head>
-            <title>Made-to-Order Products</title>
-        </head>
-        <div class="tableContain">
-            <h1>Made-to-Order Products</h1>
-            <p>Go ahead and give the artisan a call or email to get more details about any made-to-order product.</p>
-            <table id="mto_table" class="table table-bordered table-hover">
-                <tr>
-                    <th> Product </th>
-                    <th> Artisan </th>
-                    <th> Artisan's Phone </th>
-                    <th> Artisan's Email </th>
-                </tr>
 
-                %for mto in mto_products:
-                    <tr>
-                        <td>${ mto.name }</td>
-                        <td>${ mto.vendor.first_name + " " + mto.vendor.last_name }</td>
-                        <td>${ mto.vendor.phone }</td>
-                        <td>${ mto.vendor.email }</td>
-                    </tr>
-                %endfor
-            </table>
-        </div>
-    </%block>
-</body>
-</html>
+<%block name="content">
+    <head>
+        <title>Made-to-Order Products</title>
+    </head>
+    <div class="tableContain">
+        <h1>Made-to-Order Products</h1>
+        <p>Go ahead and give the artisan a call or email to get more details about any made-to-order product.</p>
+        <table id="mto_table" class="table table-bordered table-hover">
+            <tr>
+                <th> Product </th>
+                <th> Image </th>
+                <th> Artisan </th>
+                <th> Artisan's Phone </th>
+                <th> Artisan's Email </th>
+                <th> Area </th>
+                <th> Event </th>
+            </tr>
+            %for mto in mto_products:
+                <tr>
+                    <td>${ mto.name }</td>
+                    <td><img src="${ mto.photo.image }"/></td>
+                    <td>${ mto.vendor.first_name + " " + mto.vendor.last_name }</td>
+                    <td>${ mto.vendor.phone }</td>
+                    <td>${ mto.vendor.email }</td>
+                    <td>${ mto.area.name }</td>
+                    <td>${ mto.area.event.name }</td>
+                </tr>
+            %endfor
+        </table>
+    </div>
+</%block>
+
