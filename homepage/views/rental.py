@@ -93,6 +93,7 @@ def create(request):
             ProdSpec.type = "rental"
             ProdSpec.category_id = 1
             ProdSpec.save()
+            ProdSpec.photo = hmod.Photograph.objects.get(id=22)
             ProdSpec.Sku = ProdSpec.id
             ProdSpec.save()
 
@@ -106,7 +107,6 @@ def create(request):
             rental.times_rented = 0
             rental.price_per_day = form.cleaned_data['PriceDay']
             rental.replacement_price = form.cleaned_data['ReplacementPrice']
-            # rental.product_specification.photo.image = form.cleaned_data['ImagePath']
             rental.save()
 
             return HttpResponseRedirect('/homepage/rental.admin/')
