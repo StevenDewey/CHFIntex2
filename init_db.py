@@ -50,6 +50,84 @@ for data in [
     ["1991-11-05", "Cooperage", "Hand-crafted hatchet of handliness", "/static/homepage/media/hatchet.jpg"],
     ["1995-11-05", "Cooperage", "Carry some nice water in this bad boy", "/static/homepage/media/beaver_bucket.jpg"],
     ["1999-11-05", "Bakery", "Corn + bread = cornbread", "/static/homepage/media/cornbread.jpg"],
+    # Blank image
+    ["2015-04-09", "Default", "Default Image", "/static/homepage/media/default.jpg"],
+    # More products (23-25)
+    ["2015-04-09", "Gunpowder Rifle", "A pretty cool rifle", "/static/homepage/media/powder_rifle.jpg"],
+    ["2015-04-09", "Gunpowder Horn", "Hand-crafted gunpowder horn with engravings", "/static/homepage/media/powder_horn.jpg"],
+    ["2015-04-09", "Handmade Basket", "Hand-crafted basket", "/static/homepage/media/basket.jpg"],
+    # 26-28
+    ["2015-04-09", "Butter Bucket", "A bucket for churning butter", "/static/homepage/media/butter_bucket.jpg"],
+    ["2015-04-09", "Handmade Chair", "A hand-crafted, high-quality chair", "/static/homepage/media/chair.jpg"],
+    ["2015-04-09", "Handmade Candles", "Hand-crafted candles that smell like colonial perfume (dirt)", "/static/homepage/media/candles.jpg"],
+    # 29-31
+    ["2015-04-09", "Chandelier", "Chandelier", "/static/homepage/media/chandelier.jpg"],
+    ["2015-04-09", "Mug", "", "/static/homepage/media/mug.jpg"],
+    ["2015-04-09", "Drinking Glasses", "", "/static/homepage/media/drinking_glasses.jpg"],
+    # 32-34
+    ["2015-04-09", "Ornate Bowl", "", "/static/homepage/media/ornate_bowl.jpg"],
+    ["2015-04-09", "Salt Shaker", "", "/static/homepage/media/salt_shaker.jpg"],
+    ["2015-04-09", "Knife and Sheath", "", "/static/homepage/media/knife_and_sheath.jpg"],
+    # 35-38
+    ["2015-04-09", "A Rooster Lamp", "", "/static/homepage/media/rooster_lamp.jpg"],
+    ["2015-04-09", "Gold-plated Rifle", "", "/static/homepage/media/gold_plated_rifle.jpg"],
+    ["2015-04-09", "Stationary", "", "/static/homepage/media/stationary.jpg"],
+    ["2015-04-09", "Pig", "", "/static/homepage/media/pig.jpg"],
+    # More rentals 39-41
+    ["2015-04-09", "Blue Dress", "A blue dress, size 8", "/static/homepage/media/blue_dress.jpg"],
+    ["2015-04-09", "Red Dress", "Size 6", "/static/homepage/media/red_dress.jpg"],
+    ["2015-04-09", "Boy's Outfit", "Boy's Medium", "/static/homepage/media/boy_outfit.jpg"],
+    # 42-44
+    ["2015-04-09", "Girl's Doll", "", "/static/homepage/media/doll.jpg"],
+    ["2015-04-09", "Blue Dress with Huge White Bow", "", "/static/homepage/media/bow_dress.jpg"],
+    ["2015-04-09", "Man's Outfit", "Red Tunic, Blue Jacket and pants", "/static/homepage/media/man_outfit.jpg"],
+    # 45-47
+    ["2015-04-09", "Man's Hat", "", "/static/homepage/media/hat.jpg"],
+    ["2015-04-09", "A Woman's Bonnet", "", "/static/homepage/media/bonnet.jpg"],
+    ["2015-04-09", "Handmade Bowtie", "", "/static/homepage/media/bowtie.jpg"],
+    # 48-50
+    ["2015-04-09", "White Dress", "", "/static/homepage/media/white_dress.jpg"],
+    ["2015-04-09", "Blue Dress with Pink Bows", "", "/static/homepage/media/blue_dress_pink_bows.jpg"],
+    ["2015-04-09", "Blue Dress", "", "/static/homepage/media/ugly_blue_dress.jpg"],
+    # 51-52
+    ["2015-04-09", "Green and White Dress", "", "/static/homepage/media/green_white_dress.jpg"],
+    ["2015-04-09", "Man's Flowery Vest", "", "/static/homepage/media/flower_vest.jpg"],
+    # ["2015-04-09", "", "", "/static/homepage/media/.jpg"],
+    ["2015-04-09", "Butter Bucket", "A bucket for churning butter", "/static/homepage/media/butter_bucket.jpg"],
+    ["2015-04-09", "Handmade Basket", "Hand-crafted basket", "/static/homepage/media/basket.jpg"],
+    ["2015-04-09", "Handmade Chair", "A hand-crafted, high-quality chair", "/static/homepage/media/chair.jpg"],
+    ["2015-04-09", "A Rooster Lamp", "", "/static/homepage/media/rooster_lamp.jpg"],
+    ["2015-04-09", "Stationary", "", "/static/homepage/media/stationary.jpg"],
+    ["2015-04-09", "Pig", "", "/static/homepage/media/pig.jpg"],
+    ["2015-04-09", "Gunpowder Rifle", "A pretty cool rifle", "/static/homepage/media/powder_rifle.jpg"],
+    ["2015-04-09", "Gunpowder Horn", "Hand-crafted gunpowder horn with engravings", "/static/homepage/media/powder_horn.jpg"],
+    ["2015-04-09", "Knife and Sheath", "", "/static/homepage/media/knife_and_sheath.jpg"],
+    ["2015-04-09", "Gold-plated Rifle", "", "/static/homepage/media/gold_plated_rifle.jpg"],
+    ["2015-04-09", "Handmade Candles", "Hand-crafted candles that smell like colonial perfume (dirt)", "/static/homepage/media/candles.jpg"],
+    ["2015-04-09", "Chandelier", "Chandelier", "/static/homepage/media/chandelier.jpg"],
+    ["2015-04-09", "Mug", "", "/static/homepage/media/mug.jpg"],
+    ["2015-04-09", "Drinking Glasses", "", "/static/homepage/media/drinking_glasses.jpg"],
+    ["2015-04-09", "Ornate Bowl", "", "/static/homepage/media/ornate_bowl.jpg"],
+    ["2015-04-09", "Salt Shaker", "", "/static/homepage/media/salt_shaker.jpg"],
+    ["2015-04-09", "Blue Dress", "A blue dress, size 8", "/static/homepage/media/blue_dress.jpg"],
+    ["2015-04-09", "Red Dress", "Size 6", "/static/homepage/media/red_dress.jpg"],
+    ["2015-04-09", "Boy's Outfit", "Boy's Medium", "/static/homepage/media/boy_outfit.jpg"],
+    ["2015-04-09", "Girl's Doll", "", "/static/homepage/media/doll.jpg"],
+    ["2015-04-09", "Blue Dress with Huge White Bow", "", "/static/homepage/media/bow_dress.jpg"],
+    ["2015-04-09", "Man's Outfit", "Red Tunic, Blue Jacket and pants", "/static/homepage/media/man_outfit.jpg"],
+    ["2015-04-09", "Man's Hat", "", "/static/homepage/media/hat.jpg"],
+    ["2015-04-09", "A Woman's Bonnet", "", "/static/homepage/media/bonnet.jpg"],
+    ["2015-04-09", "Handmade Bowtie", "", "/static/homepage/media/bowtie.jpg"],
+    ["2015-04-09", "White Dress", "", "/static/homepage/media/white_dress.jpg"],
+    ["2015-04-09", "Blue Dress with Pink Bows", "", "/static/homepage/media/blue_dress_pink_bows.jpg"],
+    ["2015-04-09", "Blue Dress", "", "/static/homepage/media/ugly_blue_dress.jpg"],
+    ["2015-04-09", "Green and White Dress", "", "/static/homepage/media/green_white_dress.jpg"],
+    ["2015-04-09", "Man's Flowery Vest", "", "/static/homepage/media/flower_vest.jpg"],
+    # more events
+    ["2004-01-03", "Grand Canyon", "What a grand canyon", "/static/homepage/media/grand_canyon.jpg"],
+    ["2005-04-30", "Utah Lake", "Even better than the Great Salt Lake", "/static/homepage/media/utah_lake.jpg"],
+    ["2004-05-22", "Sandy", "Great location full of fun things to do", "/static/homepage/media/south_towne.jpg"],
+    ["2007-12-21", "Next to Freeway", "Almost BYU", "/static/homepage/media/uvu.jpg"],
 ]:
     p = hmod.Photograph()
     p.date_taken = data[0]
@@ -125,12 +203,13 @@ id_counter = 0
 
 for data in [
 
-    ["Jayson", "Jensen", "jayson", "jayson", "jensenjb21@gmail.com", False, "Am I cool?", "yes", "801-324-4233", 1, 5, 1],
-    ["Macey", "Vogt", "macey", "macey", "davidericvogt@gmail.com", False, "Whos my daddy?", "Gerald", "801-624-4433", 2, 5, 4],
-    ["David", "Vogt", "david", "david", "davidericvogt@gmail.com", False, "How old am I?", "43", "801-324-4433",2, 5, 3],
-    ["Steven", "Dewey", "steven", "steven", "s.dewey1@gmail.com", False, "Whats my favorite color?", "pink", "801-384-4433", 3, 5, 2],
-    ["Bucky", "LeStarge", "kevin", "kevin", "kblestarge@gmail.com", True, "Am I cool?", "Heck yes", "801-324-4733", 4, 5, 1],
-    ["Gove", "Allen", "gove", "gove", "fake.gove@byu.edu", False, "I am the...", "Gove", "801-422-1206", 5, 5, 3],
+    ["Jayson", "Jensen", "jayson", "jayson", "jensenjb21@gmail.com", False, "Am I cool?", "yes", "801-324-4233", 1, 22, 1],
+    ["Macey", "Vogt", "macey", "macey", "davidericvogt@gmail.com", False, "Whos my daddy?", "Gerald", "801-624-4433", 2, 22, 4],
+    ["David", "Vogt", "david", "david", "davidericvogt@gmail.com", False, "How old am I?", "43", "801-324-4433",2, 22, 3],
+    ["Steven", "Dewey", "steven", "steven", "s.dewey1@gmail.com", False, "Whats my favorite color?", "pink", "801-384-4433", 3, 22, 2],
+    ["Bucky", "LeStarge", "kevin", "kevin", "kblestarge@gmail.com", True, "Am I cool?", "Heck yes", "801-324-4733", 4, 22, 1],
+    ["Gove", "Allen", "gove", "gove", "fake.gove@byu.edu", False, "I am the...", "Gove", "801-422-1206", 5, 22, 3],
+    ["The", "Foundation", "chf", "chf", "fake.chf@chf2015.com", False, "The", "Foundation", "801-322-6635", 5, 22, 1],
 ]:
 
     u = hmod.User()
@@ -157,6 +236,10 @@ for data in [
     ["Summer Festival", "Museums and open landscape", "2000-12-25", "2012-12-25", "http://www.thanksgivingpoint.org/document.doc?id=424", "Thanksgiving Point", 1, 16],
     ["Winter Festival", "Different events in different BYU buildings", "2000-12-25", "2012-12-25", "http://map.byu.edu/campusmap.pdf", "BYU Campus", 2, 17],
     ["Fall Festival", "A great big desert with canyons", "2000-12-25", "2012-12-25", "https://www.utah.com/nationalparks/bryce_canyon/bryce-map.pdf", "Bryce Canyon", 4, 18],
+    ["Grand Festival", "The canyon of all canyons", "2001-12-25", "2002-12-25", "http://www.nps.gov/grca/planyourvisit/upload/GRCAmap2.pdf", "Bryce Canyon", 1, 83],
+    ["Water Festival", "Even better than the Great Salt Lake", "2001-12-25", "2002-12-25", "http://www.utahcounty.gov/OnlineServices/images/UtahCountyAreaMap_11x17A.pdf", "Bryce Canyon", 2, 84],
+    ["Sandy Festival", "Great location full of fun things to do", "2001-12-25", "2002-12-25", "http://www.southtowneexpo.com/downloads/South_Towne_Brochure.pdf", "Bryce Canyon", 3, 85],
+    ["Community Festival", "Almost, but not quite, BYU", "2001-12-25", "2002-12-25", "https://www.uvu.edu/maps/docs/uvu_map_2013.pdf", "Bryce Canyon", 4, 86],
 ]:
     e = hmod.Event()
     e.name = data[0]
@@ -193,31 +276,113 @@ for data in [
 
 ##########################       CATEGORY
 e1 = hmod.Category()
-e1.description = "Cool Category"
+e1.description = "Products"
 e1.save()
 
 e2 = hmod.Category()
-e2.description = "Rad Category"
+e2.description = "Rentals"
 e2.save()
 
 e3 = hmod.Category()
-e3.description = "Too-cool-for-school Category"
+e3.description = "MTOs"
 e3.save()
 
 ##########################       PRODUCT SPECIFICATION
 for data in [
-    #Mass-Produced Items
+    #Mass-Produced Items 1-3
     ["Magic Beans", "39.95", "These beans make you smarter and taller", "Jack", "0.01", "hhhhh", "sdf", "five", 1, 5, 1, "product", None],
-    ["George Washington's Pipe", "1300", "Seriously, he smoked this", "His Mom", "1000", "hhhhh", "sdf", "five", 2, 5, 2, "product", None],
-    ["Tattered 19th Century Flag", "369.95", "This flag was waved by President Obama at his inauguration", "China", "4.50", "hhhhh", "sdf", "five", 3, 5, 3, "product", None],
-    #Rental Items
-    ["George Washington's Breeches", "8000", "You can wear these to parties, on Halloween, or just when you're feeling lazy but presidential", "His Mom", "8000", "sku", "an order_form_name", "a production_time", 3, 5, 6, "product", None],
-    ["Raccoon Fur Hat", "75", "Daveeeeeee, Davy Crocket! Born on the wild frontier", "The boy from Where the Red Fern Grows", "75", "sku", "an order_form_name", "a production_time", 3, 5, 7, "product", None],
-    ["Wig Styling Kit", "244.53", "Display a full head of hair", "Vietnam", "5.60", "sku", "an order_form_name", "a production_time", 3, 2, 8, "product", None],
-    #Made-to-order Items
-    ["Beaver Bucket", "40.00", "It's called a Beaver Bucket because the way it is", "Beavers", "20.00", "sku", "an order_form", "a production_time", 3, 2, 19, "mto", 4],
-    ["Corn Bread in a Cast Iron Skillet", "100.00", "We've literally tasted every recipe of cornbread in the world, and Gove's is the best.", "Gove Allen", "1.00", "sku", "an order_form", "a production_time", 3, 6, 20, "mto", 3],
-    ["Hatchet", "654.51", "Handy tool for hunting small beasts", "Cooperage", "122.74", "sku", "an order_form_name", "a production_time", 3, 2, 21, "mto", 4],
+    ["George Washington's Pipe", "1300", "Seriously, he smoked this", "His Mom", "1000", "hhhhh", "sdf", "five", 1, 5, 2, "product", None],
+    ["Tattered 19th Century Flag", "369.95", "This flag was waved by President Obama at his inauguration", "China", "4.50", "hhhhh", "sdf", "five", 1, 5, 3, "product", None],
+    #Rental Items 4-6
+    ["George Washington's Breeches", "8000", "You can wear these to parties, on Halloween, or just when you're feeling lazy but presidential", "His Mom", "8000", "sku", "an order_form_name", "a production_time", 2, 5, 6, "rental", None],
+    ["Raccoon Fur Hat", "75", "Daveeeeeee, Davy Crocket! Born on the wild frontier", "The boy from Where the Red Fern Grows", "75", "sku", "an order_form_name", "a production_time", 2, 5, 7, "rental", None],
+    ["Wig Styling Kit", "244.53", "Display a full head of hair", "Vietnam", "5.60", "sku", "an order_form_name", "a production_time", 2, 2, 8, "rental", None],
+    #Made-to-order Items 7-9
+    ["Beaver Bucket", "40.00", "It's called a Beaver Bucket because the way it is", "Beavers", "20.00", "sku", "an order_form", "a production_time", 3, 2, 20, "mto", 4],
+    ["Corn Bread in a Cast Iron Skillet", "100.00", "We've literally tasted every recipe of cornbread in the world, and Gove's is the best.", "Gove Allen", "1.00", "sku", "an order_form", "a production_time", 3, 6, 21, "mto", 3],
+    ["Hatchet", "654.51", "Handy tool for hunting small beasts", "Cooperage", "122.74", "sku", "an order_form_name", "a production_time", 3, 2, 19, "mto", 4],
+    #More products 10-12
+    ["Gunpowder Rifle", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 23, "product", None],
+    ["Gundpowder Horn", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 24, "product", None],
+    ["Handmade Basket", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 25, "product", None],
+    # 13-15
+    ["Butter Bucket", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 26, "product", None],
+    ["Handmade Chair", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 27, "product", None],
+    ["Handmade Candles", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 28, "product", None],
+    # 16-18
+    ["Chandelier", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 29, "product", None],
+    ["Mug", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 30, "product", None],
+    ["Drinking Glasses", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 31, "product", None],
+    # 19-21
+    ["Ornate Bowl", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 32, "product", None],
+    ["Salt Shaker", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 33, "product", None],
+    ["Knife and Sheath", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 34, "product", None],
+    # 22-24
+    ["A Rooster Lamp", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 35, "product", None],
+    ["Gold-plated Rifle", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 36, "product", None],
+    ["Stationary", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 37, "product", None],
+    # 25
+    ["Pig", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 38, "product", None],
+    # More Rentals 26-28
+    ["Blue Dress", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 39, "rental", None],
+    ["Red Dress", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 40, "rental", None],
+    ["Boy's Outfit", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 41, "rental", None],
+    # 29-31
+    ["Girl's Doll", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 42, "rental", None],
+    ["Blue Dress With Huge White Bow", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 43, "rental", None],
+    ["Man's Outfit", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 44, "rental", None],
+    # 32-34
+    ["Man's Hat", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 45, "rental", None],
+    ["A Woman's Bonnet", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 46, "rental", None],
+    ["Handmade Bowtie", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 47, "rental", None],
+    # 35-37
+    ["White Dress", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 48, "rental", None],
+    ["Blue Dress with Pink Bows", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 49, "rental", None],
+    ["Blue Dress", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 50, "rental", None],
+    # 38-39
+    ["Green and White Dress", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 51, "rental", None],
+    ["Man's Flowery Vest", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 52, "rental", None],
+#   More MTO products
+# Cooperage 4 40-42
+    ["Butter Bucket", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 53, "mto", 4],
+    ["Handmade Basket", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 54, "mto", 4],
+    ["Handmade Chair", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 55, "mto", 4],
+    # 43-45
+    ["A Rooster Lamp", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 56, "mto", 4],
+    ["Stationary", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 57, "mto", 4],
+    ["Pig", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 58, "mto", 4],
+# Bakehouse 3 46-49
+    ["Gunpowder Rifle", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 59, "mto", 3],
+    ["Gundpowder Horn", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 60, "mto", 3],
+    ["Knife and Sheath", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 61, "mto", 3],
+    ["Gold-plated Rifle", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 62, "mto", 3],
+# Jamestowne 5 50-52
+    ["Handmade Candles", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 63, "mto", 5],
+    ["Chandelier", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 64, "mto", 5],
+    ["Mug", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 65, "mto", 5],
+    # 53-55
+    ["Drinking Glasses", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 66, "mto", 5],
+    ["Ornate Bowl", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 67, "mto", 5],
+    ["Salt Shaker", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 1, 7, 68, "mto", 5],
+# Old South Church 6 56-58
+    ["Blue Dress", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 69, "mto", 6],
+    ["Red Dress", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 70, "mto", 6],
+    ["Boy's Outfit", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 71, "mto", 6],
+    # 59-61
+    ["Girl's Doll", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 72, "mto", 6],
+    ["Blue Dress With Huge White Bow", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 73, "mto", 6],
+    ["Man's Outfit", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 74, "mto", 6],
+    # 62-64
+    ["Man's Hat", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 75, "mto", 6],
+    ["A Woman's Bonnet", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 76, "mto", 6],
+    ["Handmade Bowtie", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 77, "mto", 6],
+    # 65-67
+    ["White Dress", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 78, "mto", 6],
+    ["Blue Dress with Pink Bows", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 79, "mto", 6],
+    ["Blue Dress", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 80, "mto", 6],
+    # 68-69
+    ["Green and White Dress", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 81, "mto", 6],
+    ["Man's Flowery Vest", "100.00", "This is a fake description for all of this dummy-data, but I assure you this is a wonderful product!", "Manufacturer", "80.00", "sku", "an order_form", "a production_time", 2, 7, 82, "mto", 6],
 ]:
 
     e = hmod.ProductSpecification()
@@ -238,11 +403,11 @@ for data in [
 
 #########################       STOCKED PRODUCT
 for data in [
-    ["5", "Behind the fridge", "I don't know", 1, 3],
-    ["445", "Shed", "I don't know", 2, 1],
-    ["100", "sdfs", "I don't know", 2, 3],
-    ["42", "house", "I don't know", 1, 2],
-    ["7", "Under the bed", "I don't know", 2, 3],
+    ["5", "Behind the fridge", "I don't know", 22, 3],
+    ["445", "Shed", "I don't know", 22, 1],
+    ["100", "sdfs", "I don't know", 22, 3],
+    ["42", "house", "I don't know", 22, 2],
+    ["7", "Under the bed", "I don't know", 22, 3],
 ]:
     s = hmod.StockedProduct()
     s.quantity_on_hand = data[0]
@@ -254,9 +419,25 @@ for data in [
 
 ##########################       SERIALIZED PRODUCT
 for data in [
-    ["1", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Huge", "well, kinda huge", "Male", "Green", "stripes", "1776", "1889", "1", "Barn", "I don't know", 2, 2],
-    ["2", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Huge", "well, kinda huge", "Male", "Green", "stripes", "1776", "1889", "45", "Barn", "I don't know", 3, 3],
-    ["5", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Huge", "well, kinda huge", "Male", "Green", "stripes", "1776", "1889", "5", "Barn", "I don't know", 1, 1],
+    ["1", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Huge", "well, kinda huge", "Male", "Green", "stripes", "1776", "1889", "1", "Barn", "I don't know", 22, 2],
+    ["2", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Huge", "well, kinda huge", "Male", "Green", "stripes", "1776", "1889", "45", "Barn", "I don't know", 22, 3],
+    ["5", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Huge", "well, kinda huge", "Male", "Green", "stripes", "1776", "1889", "5", "Barn", "I don't know", 22, 1],
+    ["6", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 10],
+    ["7", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 11],
+    ["8", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 12],
+    ["9", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 13],
+    ["10", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 14],
+    ["11", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 15],
+    ["12", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 16],
+    ["13", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 17],
+    ["14", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 18],
+    ["15", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 19],
+    ["16", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 20],
+    ["17", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 21],
+    ["18", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 22],
+    ["19", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 23],
+    ["20", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 24],
+    ["21", "product", "2012-12-12", "50.55", True, False, "this is a good product", 1, "Size", "Size Modifier", "Gender", "Color", "Pattern", "1900", "1910", "5", "Shelf Location", "Order File", 22, 25],
 ]:
 
     sp = hmod.SerializedProduct()
@@ -285,9 +466,23 @@ for data in [
 
 #########################       RENTAL PRODUCT
 for data in [
-    ["45", "20.00", "8000.00", "34", "rental", "2012-12-12", "8000", False, False, "this is a good rental product", 1, "34 waste, 32 length", "button crotch", "Male", "Yellow", "lad", "1733", "1999", "400", "behind fridge", "dsfd", 6, 4],
-    ["234", "5.00", "75.00", "66", "rental", "2012-12-12", "75.00", False, False, "this is a good rental product", 4, "Huge", "well, kinda huge", "Male", "Yellow", "lad", "1733", "1999", "400", "behind fridge", "dsfd", 7, 5],
-    ["2", "55.43", "99.99", "90", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 5, "Huge", "well, kinda huge", "Male", "Yellow", "lad", "1733", "1999", "400", "behind fridge", "dsfd", 8, 6],
+    ["45", "20.00", "8000.00", "34", "rental", "2012-12-12", "8000", False, False, "this is a good rental product", 1, "34 waste, 32 length", "button crotch", "Male", "Yellow", "lad", "1733", "1999", "400", "behind fridge", "dsfd", 22, 4],
+    ["234", "5.00", "75.00", "66", "rental", "2012-12-12", "75.00", False, False, "this is a good rental product", 4, "Huge", "well, kinda huge", "Male", "Yellow", "lad", "1733", "1999", "400", "behind fridge", "dsfd", 22, 5],
+    ["2", "55.43", "99.99", "90", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 5, "Huge", "well, kinda huge", "Male", "Yellow", "lad", "1733", "1999", "400", "behind fridge", "dsfd", 22, 6],
+    ["0", "5.99", "99.99", "91", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 7, "Size", "Size_Modifier", "Gender", "Color", "Pattern", "1900", "1910", "10", "Shelf Location", "Order File", 22, 26],
+    ["0", "5.99", "99.99", "92", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 7, "Size", "Size_Modifier", "Gender", "Color", "Pattern", "1900", "1910", "10", "Shelf Location", "Order File", 22, 27],
+    ["0", "5.99", "99.99", "93", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 7, "Size", "Size_Modifier", "Gender", "Color", "Pattern", "1900", "1910", "10", "Shelf Location", "Order File", 22, 28],
+    ["0", "5.99", "99.99", "94", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 7, "Size", "Size_Modifier", "Gender", "Color", "Pattern", "1900", "1910", "10", "Shelf Location", "Order File", 22, 29],
+    ["0", "5.99", "99.99", "95", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 7, "Size", "Size_Modifier", "Gender", "Color", "Pattern", "1900", "1910", "10", "Shelf Location", "Order File", 22, 30],
+    ["0", "5.99", "99.99", "96", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 7, "Size", "Size_Modifier", "Gender", "Color", "Pattern", "1900", "1910", "10", "Shelf Location", "Order File", 22, 31],
+    ["0", "5.99", "99.99", "97", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 7, "Size", "Size_Modifier", "Gender", "Color", "Pattern", "1900", "1910", "10", "Shelf Location", "Order File", 22, 32],
+    ["0", "5.99", "99.99", "98", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 7, "Size", "Size_Modifier", "Gender", "Color", "Pattern", "1900", "1910", "10", "Shelf Location", "Order File", 22, 33],
+    ["0", "5.99", "99.99", "99", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 7, "Size", "Size_Modifier", "Gender", "Color", "Pattern", "1900", "1910", "10", "Shelf Location", "Order File", 22, 34],
+    ["0", "5.99", "99.99", "100", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 7, "Size", "Size_Modifier", "Gender", "Color", "Pattern", "1900", "1910", "10", "Shelf Location", "Order File", 22, 35],
+    ["0", "5.99", "99.99", "101", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 7, "Size", "Size_Modifier", "Gender", "Color", "Pattern", "1900", "1910", "10", "Shelf Location", "Order File", 22, 36],
+    ["0", "5.99", "99.99", "102", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 7, "Size", "Size_Modifier", "Gender", "Color", "Pattern", "1900", "1910", "10", "Shelf Location", "Order File", 22, 37],
+    ["0", "5.99", "99.99", "103", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 7, "Size", "Size_Modifier", "Gender", "Color", "Pattern", "1900", "1910", "10", "Shelf Location", "Order File", 22, 38],
+    ["0", "5.99", "99.99", "104", "rental", "2012-12-12", "50.55", False, False, "this is a good rental product", 7, "Size", "Size_Modifier", "Gender", "Color", "Pattern", "1900", "1910", "10", "Shelf Location", "Order File", 22, 39],
 ]:
 
     r = hmod.RentalProduct()
@@ -375,9 +570,9 @@ for data in [
 #################################      Rental Item
 
 for data in [
-   ["1998-12-12", "1990-08-15", "1995-03-01", ".50", 9, "99.99", 1],
-    ["1988-12-12", "1990-08-15", "2015-03-06", ".50", 10, "99.99", 2],
-    ["1978-12-12", "1990-08-15", "2016-03-08", ".50", 11, "99.99", 3],
+   ["1998-12-12", "1990-08-15", "1995-03-01", ".50", 25, "99.99", 1],
+    ["1988-12-12", "1990-08-15", "2015-03-06", ".50", 26, "99.99", 2],
+    ["1978-12-12", "1990-08-15", "2016-03-08", ".50", 27, "99.99", 3],
 ]:
 
     ri = hmod.RentalItem()

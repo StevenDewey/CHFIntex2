@@ -91,6 +91,9 @@
                                 <li><a href="/homepage/user/">Users</a></li>
                                 <li class="divider"></li>
                                 <li><a href="/homepage/rental_return/">Rental Return</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/homepage/event.admin/">Edit Events</a></li>
+                                <li><a href="/homepage/area.admin/">Edit Areas</a></li>
                             </ul>
                         </li>
                     %elif request.user.has_perm('homepage.change_user'):
@@ -103,6 +106,9 @@
                                 <li><a href="/homepage/user/">Users</a></li>
                                 <li class="divider"></li>
                                 <li><a href="/homepage/rental_return/">Rental Return</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/homepage/event.admin/">Edit Events</a></li>
+                                <li><a href="/homepage/area.admin/">Edit Areas</a></li>
                             </ul>
                         </li>
                     %elif request.user.has_perm('homepage.add_user'):
@@ -115,6 +121,9 @@
                                 <li><a href="/homepage/user/">Users</a></li>
                                 <li class="divider"></li>
                                 <li><a href="/homepage/rental_return/">Rental Return</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/homepage/event.admin/">Edit Events</a></li>
+                                <li><a href="/homepage/area.admin/">Edit Areas</a></li>
                             </ul>
                         </li>
                     %endif
