@@ -8,7 +8,9 @@ https://docs.djangoproject.com/en/1.7/howto/deployment/wsgi/
 """
 
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "test_dmp.settings")
+import sys
+os.environ["DJANGO_SETTINGS_MODULE"] = "test_dmp.settings"
+sys.path.append('C:/Apache24/htdocs/CHFIntex2-master')
 
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
