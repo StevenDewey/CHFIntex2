@@ -87,7 +87,7 @@ def create(request):
     event.map_file_name = 'map file name'
     event.venue_name = 'venue'
     #event.address_id = hmod.Address.objects.first().id
-    #event.photo_id = ''
+    event.photo_id = 22
     event.save()
 
     return HttpResponseRedirect('/homepage/event.edit/{}/'.format(event.id))
