@@ -174,7 +174,7 @@ class StockedProduct(PolymorphicModel):
     quantity_on_hand = models.IntegerField()
     shelf_location = models.TextField(max_length=40)
     order_file = models.TextField(null=True)
-    # photo = models.ForeignKey(Photograph, null=True)
+    photo = models.ForeignKey(Photograph, null=True)
     product_specification = models.ForeignKey(ProductSpecification, related_name='+')
 
     def __str__(self):

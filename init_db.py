@@ -123,6 +123,11 @@ for data in [
     ["2015-04-09", "Blue Dress", "", "/static/homepage/media/ugly_blue_dress.jpg"],
     ["2015-04-09", "Green and White Dress", "", "/static/homepage/media/green_white_dress.jpg"],
     ["2015-04-09", "Man's Flowery Vest", "", "/static/homepage/media/flower_vest.jpg"],
+    # more events
+    ["2004-01-03", "Grand Canyon", "What a grand canyon", "/static/homepage/media/grand_canyon.jpg"],
+    ["2005-04-30", "Utah Lake", "Even better than the Great Salt Lake", "/static/homepage/media/utah_lake.jpg"],
+    ["2004-05-22", "Sandy", "Great location full of fun things to do", "/static/homepage/media/south_towne.jpg"],
+    ["2007-12-21", "Next to Freeway", "Almost BYU", "/static/homepage/media/uvu.jpg"],
 ]:
     p = hmod.Photograph()
     p.date_taken = data[0]
@@ -231,6 +236,10 @@ for data in [
     ["Summer Festival", "Museums and open landscape", "2000-12-25", "2012-12-25", "http://www.thanksgivingpoint.org/document.doc?id=424", "Thanksgiving Point", 1, 16],
     ["Winter Festival", "Different events in different BYU buildings", "2000-12-25", "2012-12-25", "http://map.byu.edu/campusmap.pdf", "BYU Campus", 2, 17],
     ["Fall Festival", "A great big desert with canyons", "2000-12-25", "2012-12-25", "https://www.utah.com/nationalparks/bryce_canyon/bryce-map.pdf", "Bryce Canyon", 4, 18],
+    ["Grand Festival", "The canyon of all canyons", "2001-12-25", "2002-12-25", "http://www.nps.gov/grca/planyourvisit/upload/GRCAmap2.pdf", "Bryce Canyon", 1, 83],
+    ["Water Festival", "Even better than the Great Salt Lake", "2001-12-25", "2002-12-25", "http://www.utahcounty.gov/OnlineServices/images/UtahCountyAreaMap_11x17A.pdf", "Bryce Canyon", 2, 84],
+    ["Sandy Festival", "Great location full of fun things to do", "2001-12-25", "2002-12-25", "http://www.southtowneexpo.com/downloads/South_Towne_Brochure.pdf", "Bryce Canyon", 3, 85],
+    ["Community Festival", "Almost, but not quite, BYU", "2001-12-25", "2002-12-25", "https://www.uvu.edu/maps/docs/uvu_map_2013.pdf", "Bryce Canyon", 4, 86],
 ]:
     e = hmod.Event()
     e.name = data[0]
@@ -394,11 +403,11 @@ for data in [
 
 #########################       STOCKED PRODUCT
 for data in [
-    ["5", "Behind the fridge", "I don't know", 1, 3],
-    ["445", "Shed", "I don't know", 2, 1],
-    ["100", "sdfs", "I don't know", 2, 3],
-    ["42", "house", "I don't know", 1, 2],
-    ["7", "Under the bed", "I don't know", 2, 3],
+    ["5", "Behind the fridge", "I don't know", 22, 3],
+    ["445", "Shed", "I don't know", 22, 1],
+    ["100", "sdfs", "I don't know", 22, 3],
+    ["42", "house", "I don't know", 22, 2],
+    ["7", "Under the bed", "I don't know", 22, 3],
 ]:
     s = hmod.StockedProduct()
     s.quantity_on_hand = data[0]
