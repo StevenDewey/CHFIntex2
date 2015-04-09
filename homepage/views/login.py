@@ -97,6 +97,8 @@ def loginform(request):
                         newuser.groups.add(3)
                     elif "CN=Administrators" in newGroups:
                         newuser.groups.add(1)
+                    elif "CN=Manager" in newGroups:
+                        newuser.groups.add(2)
                 print("<<<<<<<<<<<<<<<<<< user")
                     #print(newuser)
             except:
