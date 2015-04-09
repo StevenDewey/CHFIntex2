@@ -127,6 +127,8 @@ def process_cc(request):
             emailbody = templater.render(request, 'checkout_rental_email.html', params)
             send_mail("Thank You -- CHF Receipt", emailbody, 'Support@chf2015.com', [user_email], html_message=emailbody, fail_silently=False)
 
+            request.session.flush()
+
             return HttpResponseRedirect('/homepage/thank_you/')
 
         else:
@@ -153,5 +155,7 @@ def process_cc(request):
             user_email = request.user.email
             emailbody = templater.render(request, 'checkout_product_email.html', params)
             send_mail("Thank You -- CHF Receipt", emailbody, 'Support@chf2015.com', [user_email], html_message=emailbody, fail_silently=False)
+
+            request.session.flush()
 
             return HttpResponseRedirect('/homepage/thank_you/')
