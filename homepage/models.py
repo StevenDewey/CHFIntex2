@@ -148,10 +148,10 @@ class ProductSpecification(models.Model):
     '''
     name = models.TextField(max_length=200)
     type = models.TextField(max_length=100, null=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     description = models.TextField()
-    manufacturer = models.TextField(max_length=80)
-    average_cost = models.DecimalField(max_digits=10, decimal_places=2)
+    manufacturer = models.TextField(max_length=80, null=True)
+    average_cost = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     sku = models.TextField(max_length=20)
     order_form_name = models.TextField(max_length=200, null=True)
     production_time = models.TextField(max_length=200, null=True)

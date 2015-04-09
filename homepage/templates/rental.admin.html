@@ -1,0 +1,56 @@
+<%inherit file="base.htm" />
+
+<html>
+<head>
+
+</head>
+<body>
+    <%block name="content">
+
+    <head>
+        <title>Rental Management</title>
+    </head>
+
+        <div class="page-header">
+            <h1> Rental Items <small></small></h1>
+        </div>
+        <a href="/homepage/rental.create/" class="btn btn-warning create_new_btn" style="margin-bottom: 10px">Create New Rental</a>
+        <table id="user_table" class="table table-bordered table-hover">
+            <tr>
+                <th>  </th>
+                <th> ID </th>
+                <th> Name </th>
+                <th> Description </th>
+                <th> Price/day </th>
+                <th> Replacement Price </th>
+##                <th> Image path </th>
+
+##                <th> Email </th>
+##                <th> Security Question </th>
+##                <th> Security Answer </th>
+            </tr>
+
+            %for rental in rentals:
+                <tr>
+                    <td>
+                        <a href="/homepage/rental.edit/${ rental.id }">Edit</a>
+                        <span> | </span>
+                        <a href="/homepage/rental.delete/${ rental.id }/">Delete</a>
+                    </td>
+                    <td>${ rental.id }</td>
+                    <td>${ rental.product_specification.name }</td>
+                    <td>${ rental.product_specification.description }</td>
+                    <td>${ rental.price_per_day }</td>
+                    <td>${ rental.replacement_price }</td>
+##                    <td>${ rental.product_specification.photo.image }</td>
+
+##                    <th>${ user.password }</th>
+##                    <td>${ user.email }</td>
+##                    <th>${ user.security_question }</th>
+##                    <th>${ user.security_answer}</th>
+                </tr>
+            %endfor
+        </table>
+    </%block>
+</body>
+</html>
