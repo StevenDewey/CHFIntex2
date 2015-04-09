@@ -158,6 +158,7 @@ class ProductSpecification(models.Model):
     category = models.ForeignKey(Category, related_name='+')
     vendor = models.ForeignKey(User, null=True)
     photo = models.OneToOneField(Photograph, null=True)
+    area = models.ForeignKey(Area, null=True)
 
     def __str__(self):
 

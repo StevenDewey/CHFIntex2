@@ -38,14 +38,46 @@ class LoginForm(forms.Form):
     def clean(self):
         user = authenticate(username=self.cleaned_data['username'],
                             password=self.cleaned_data['password'])
-        if user == None:
-           raise forms.ValidationError('Incorrect username or password')
+        #if user == None:
+         #  raise forms.ValidationError('Incorrect username or password')
         return self.cleaned_data
-
+@view_function
+def logincheckout(request):
+    form = LoginForm()
+    params = {}
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            newUserName = form.cleaned_data['username']
+            newPassword = form.cleaned_data['password']
+             #BYU's is fine for now, but we'll have to do our own Active Directory for INTEX_II
+            try:
+                s = Server('www.chf2015.com', port=636, get_info=GET_ALL_INFO)
+                c = Connection(s, auto_bind = True, client_strategy = STRATEGY_SYNC, user=newUserName, password=newPassword, authentication=AUTH_SIMPLE)
+                #print(s.info)
+                print("<<<<<<<<<<<<<<<<<< connected")
+                newuser, created = hmod.User.objects.get_or_create(username=newUserName)
+                if created:
+                   
+                    newuser.set_password(newPassword)
+                    newuser.save()
+                print("<<<<<<<<<<<<<<<<<< user")
+                #print(newuser)
+            except:
+                pass
+            user = authenticate(username=newUserName,
+                     password=newPassword)
+            login(request, user)
+            return templater.render_to_response(request, 'checkout.html', params)
+        print("inner")
+    print("outer")
+    return templater.render_to_response(request, 'checkout.html', params)
 @view_function
 def loginform(request):
     params = {}
-
+    checkoutLogin = request.urlparams[0]
+    print("<<<<<<<<<<<<<<<<<<<")
+    print(checkoutLogin)
     form = LoginForm()
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -87,11 +119,19 @@ def loginform(request):
             #user = authenticate(username=form.cleaned_data['username'],
             #              password=form.cleaned_data['password'])
             #login(request, user)
-            return HttpResponse('''
-            <script>
-                window.location.href = window.location.href;
-            </script>
-            ''')
+            if checkoutLogin == "true":
+                # return HttpResponse('''
+                # <script>
+                # window.location.href = '/homepage/checkout/';
+                # </script>
+                # ''')
+                return templater.render_to_response(request, '/homepage/checkout/', params)
+            else:
+                return HttpResponse('''
+                <script>
+                    window.location.href = window.location.href;
+                </script>
+                ''')
 
     params['form'] = form
     return templater.render_to_response(request, 'login.loginform.html', params)

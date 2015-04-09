@@ -14,8 +14,12 @@ def process_request(request):
     params = {}
 
     area = hmod.Area.objects.get(id=request.urlparams[0])
+    event = hmod.Event.objects.get(id=request.urlparams[1])
+    mto_products = hmod.ProductSpecification.objects.filter(type="mto",area_id=request.urlparams[0])
 
+    params['mto_products'] = mto_products
     params['area'] = area
+    params['event'] =event
 
     return templater.render_to_response(request, 'area_detail.html', params)
 

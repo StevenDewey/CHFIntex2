@@ -12,12 +12,15 @@ templater = get_renderer('homepage')
 
 ############################################################
 #### Display Checkout Form with Items in Shopping Cart
-
+#@login_required(login_url='/homepage/login/',redirect_field_name='')
 @view_function
 # @login_required(login_url='/homepage/checkout.login/')
 def process_request(request):
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/accounts/login.logincheckoutptone/')
     params = {}
 
+<<<<<<< HEAD
     # this is where we add the shipping address to the database
 
     class AddressForm(forms.Form):
@@ -57,6 +60,9 @@ def process_request(request):
     params['form'] = form
     return templater.render_to_response(request, 'checkout.ship_address.html', params)
 
+=======
+    return templater.render_to_response(request, 'checkout.html', params)
+>>>>>>> master
 
 @view_function
 def payment_info(request):

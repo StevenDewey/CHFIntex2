@@ -7,3 +7,7 @@
     float: left;
     display: inline;
 }
+.bg-danger{
+    padding: 14px;
+    border-radius: 5px;
+}

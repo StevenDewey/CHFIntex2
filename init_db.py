@@ -156,6 +156,28 @@ for data in [
     e.photo_id = data[7]
     e.save()
 
+#################################      AREA
+
+for data in [
+    ["Security", "Security station", "6", 1, 2, 4, None, 14],
+    ["Information Booth", "Maps and helpers", "5", 1, 2, 4, None, 11],
+    ["Bakehouse", "Bread making demonstrations", "4", 1, 2, 4, None, 9],
+    ["Cooperage", "Items made of copper", "2", 1, 2, 4, None, 10],
+    ["Jamestowne", "Visit old Jamestowne", "3", 1, 2, 4, None, 12],
+    ["Old South Church", "Worship respectfully", "8", 1, 2, 4, None, 13],
+]:
+
+    a = hmod.Area()
+    a.name = data[0]
+    a.description = data[1]
+    a.place_number = data[2]
+    a.coordinator_id = data[3]
+    a.supervisor_id = data[4]
+    a.event_id = data[5]
+    #a.participants = data[6]
+    a.photo_id = data[7]
+    a.save()
+
 ##########################       CATEGORY
 e1 = hmod.Category()
 e1.description = "Cool Category"
@@ -171,16 +193,18 @@ e3.save()
 
 ##########################       PRODUCT SPECIFICATION
 for data in [
-    ["Magic Beans", "39.95", "These beans make you smarter and taller", "Jack", "0.01", "hhhhh", "sdf", "five", 1, 5, 1, "product"],
-    ["George Washington's Pipe", "1300", "Seriously, he smoked this", "His Mom", "1000", "hhhhh", "sdf", "five", 2, 5, 2, "product"],
-    ["Tattered 19th Century Flag", "369.95", "This flag was waved by President Obama at his inauguration", "China", "4.50", "hhhhh", "sdf", "five", 3, 5, 3, "product"],
-    ["George Washington's Breeches", "8000", "You can wear these to parties, on Halloween, or just when you're feeling lazy but presidential", "His Mom", "8000", "sku", "an order_form_name", "a production_time", 3, 5, 6, "product"],
-    ["Raccoon Fur Hat", "75", "Daveeeeeee, Davy Crocket! Born on the wild frontier", "The boy from Where the Red Fern Grows", "75", "sku", "an order_form_name", "a production_time", 3, 5, 7, "product"],
-    ["Wig Styling Kit", "244.53", "Display a full head of hair", "Vietnam", "5.60", "sku", "an order_form_name", "a production_time", 3, 2, 8, "product"],
+    #Mass-Produced Items
+    ["Magic Beans", "39.95", "These beans make you smarter and taller", "Jack", "0.01", "hhhhh", "sdf", "five", 1, 5, 1, "product", None],
+    ["George Washington's Pipe", "1300", "Seriously, he smoked this", "His Mom", "1000", "hhhhh", "sdf", "five", 2, 5, 2, "product", None],
+    ["Tattered 19th Century Flag", "369.95", "This flag was waved by President Obama at his inauguration", "China", "4.50", "hhhhh", "sdf", "five", 3, 5, 3, "product", None],
+    #Rental Items
+    ["George Washington's Breeches", "8000", "You can wear these to parties, on Halloween, or just when you're feeling lazy but presidential", "His Mom", "8000", "sku", "an order_form_name", "a production_time", 3, 5, 6, "product", None],
+    ["Raccoon Fur Hat", "75", "Daveeeeeee, Davy Crocket! Born on the wild frontier", "The boy from Where the Red Fern Grows", "75", "sku", "an order_form_name", "a production_time", 3, 5, 7, "product", None],
+    ["Wig Styling Kit", "244.53", "Display a full head of hair", "Vietnam", "5.60", "sku", "an order_form_name", "a production_time", 3, 2, 8, "product", None],
     #Made-to-order Items
-    ["Beaver Bucket", "40.00", "It's called a Beaver Bucket because the way it is", "Beavers", "20.00", "sku", "an order_form", "a production_time", 3, 2, 19, "mto"],
-    ["Corn Bread in a Cast Iron Skillet", "100.00", "We've literally tasted every recipe of cornbread in the world, and Gove's is the best.", "Gove Allen", "1.00", "sku", "an order_form", "a production_time", 3, 6, 20, "mto"],
-    ["Hatchet", "654.51", "Handy tool for hunting small beasts", "Cooperage", "122.74", "sku", "an order_form_name", "a production_time", 3, 2, 21, "mto"],
+    ["Beaver Bucket", "40.00", "It's called a Beaver Bucket because the way it is", "Beavers", "20.00", "sku", "an order_form", "a production_time", 3, 2, 19, "mto", 4],
+    ["Corn Bread in a Cast Iron Skillet", "100.00", "We've literally tasted every recipe of cornbread in the world, and Gove's is the best.", "Gove Allen", "1.00", "sku", "an order_form", "a production_time", 3, 6, 20, "mto", 3],
+    ["Hatchet", "654.51", "Handy tool for hunting small beasts", "Cooperage", "122.74", "sku", "an order_form_name", "a production_time", 3, 2, 21, "mto", 4],
 ]:
 
     e = hmod.ProductSpecification()
@@ -196,6 +220,7 @@ for data in [
     e.vendor_id = data[9]
     e.photo_id = data[10]
     e.type = data[11]
+    e.area_id = data[12]
     e.save()
 
 #########################       STOCKED PRODUCT
@@ -402,28 +427,6 @@ for data in [
     cp = hmod.ConfigurationParameters()
     cp.sales_tax_rate = data[0]
     cp.save()
-
-#################################      AREA
-
-for data in [
-    ["Security", "Security station", "6", 1, 2, 4, None, 14],
-    ["Information Booth", "Maps and helpers", "5", 1, 2, 4, None, 11],
-    ["Bakehouse", "Bread making demonstrations", "4", 1, 2, 4, None, 9],
-    ["Cooperage", "Items made of copper", "2", 1, 2, 4, None, 10],
-    ["Jamestowne", "Visit old Jamestowne", "3", 1, 2, 4, None, 12],
-    ["Old South Church", "Worship respectfully", "8", 1, 2, 4, None, 13],
-]:
-
-    a = hmod.Area()
-    a.name = data[0]
-    a.description = data[1]
-    a.place_number = data[2]
-    a.coordinator_id = data[3]
-    a.supervisor_id = data[4]
-    a.event_id = data[5]
-    #a.participants = data[6]
-    a.photo_id = data[7]
-    a.save()
 
 #################################       Participant Role
 

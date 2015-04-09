@@ -1,7 +1,12 @@
 <%inherit file="base.htm" />
 
 <%block name="content">
-    <a href="/homepage/area"><button class="right btn btn-primary">Back To Areas</button></a>
+
+<head>
+    <title>Area Detail</title>
+</head>
+
+    <a href="/homepage/event_detail/${ event.id }"><button class="right btn btn-primary">Back</button></a>
     <div id="area_detail_div">
         <div class="areaImageDiv">
             <img src="${ area.photo.image }">
@@ -14,4 +19,23 @@
             <p><b>Supervisor:</b> ${ area.supervisor.first_name + " " + area.supervisor.last_name }</p><br><br>
         </div>
     </div>
+        <hr color="#c7c34c" size="2" width="50%">
+        <h1 class="center">Artisan Products</h1><br>
+          <table id="mto_table" class="table table-bordered table-hover">
+              <tr>
+                <th> Product Name </th>
+                <th> Image </th>
+                <th> Vendor Name </th>
+                <th> Phone Number </th>
+                <th> Email </th>
+              </tr>
+          %for mto in mto_products:
+            <tr>
+              <td>${ mto.name } </td>
+              <td><img src="${ mto.photo.image }"/></td>
+              <td>${ mto.vendor.first_name + " " + mto.vendor.last_name } </td>
+              <td>${ mto.vendor.phone } </td>
+              <td>${ mto.vendor.email } </td>
+            </tr>
+          %endfor
  </%block>

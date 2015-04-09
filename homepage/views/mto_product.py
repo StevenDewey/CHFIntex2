@@ -10,15 +10,13 @@ from django.contrib.auth.decorators import permission_required
 
 templater = get_renderer('homepage')
 
-
 @view_function
 def process_request(request):
     params = {}
 
     mto_products = hmod.ProductSpecification.objects.filter(type="mto").order_by('vendor')
+
     params['mto_products'] = mto_products
-    print(">>>>>>>>>>>>>>")
-    print(mto_products)
 
     return templater.render_to_response(request, 'mto_product.html', params)
 
