@@ -118,7 +118,7 @@ def create(request):
 # @permission_required('homepage.delete_rental', login_url='/homepage/invalid_permissions/')
 def delete(request):
 
-    '''delete an rental'''
+    # delete an rental
     try:
         rental = hmod.RentalProduct.objects.get(id=request.urlparams[0])
     except hmod.RentalProduct.DoesNotExist:

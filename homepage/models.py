@@ -40,7 +40,7 @@ class Photograph(models.Model):
 
 class User(AbstractUser):
     '''
-        A user within the CHF system.  Extends the built-in AbstractUser, and so we'll
+        A uer within the CHF system.  Extends the built-in AbstractUser, and so we'll
         need to indicate in our settings.py that this is the designated login user.
     '''
     phone = models.TextField(max_length=40, null=True, blank=True)
