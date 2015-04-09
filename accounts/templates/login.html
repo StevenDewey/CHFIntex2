@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-Should redirect
-</body>
-</html>
+
+
+<%inherit file="/homepage/templates/base.htm" />
+
+<%block name="content">
+
+    <head>
+        <title>Login</title>
+    </head>
+
+    <h3 class="bg-warning">Please log in before proceeding to checkout<h3>
+
+    <div id="loginform_conatiner">
+
+        <div class="page-header">
+            <h1> Sign In </h1>
+            <small><h4>New Customer? <a href="/#/">Click here.</a></h4></small>
+        </div>
+
+        <form id="loginform" method="POST" action="/accounts/login.logincheckoutpttwo/">
+            <table>
+                ${ form }
+            </table>
+            <br>
+            <button id="LogInID" type="submit" class="btn btn-default">Submit</button>
+        </form>
+
+    </div>
+ </%block>
