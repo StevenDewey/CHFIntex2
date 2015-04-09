@@ -44,65 +44,63 @@ class LoginForm(forms.Form):
 @view_function
 def loginform(request):
     params = {}
-
-    print("<<<<<<<<<<<<<<<<<<<")
-    print(checkoutLogin)
     form = LoginForm()
+    print("<<<<<<<<<<<<<<<<<<<")
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
             newUserName = form.cleaned_data['username']
             newPassword = form.cleaned_data['password']
              #BYU's is fine for now, but we'll have to do our own Active Directory for INTEX_II
-            #try:
-            s = Server('www.chf2015.com', port=636, get_info=GET_ALL_INFO)
-            c = Connection(s, auto_bind = True, client_strategy = STRATEGY_SYNC, user=newUserName, password=newPassword, authentication=AUTH_SIMPLE)
-            search_results = c.search(
-                search_base = 'DC=chf2015,DC=local',
-                search_filter = '(userPrincipalName='+newUserName+')',
-                attributes = ['*']
-            )
-        
-            user_info = c.response[0]['attributes']
-            print(s.info) # display info from the DSE. OID are decoded when recognized by the library
-            print(">>>>> print connection results")
-            print("------------------------------------")
-            print(c.result)
-            print(c.response) #it's okay if this is None
-            print("++++++++++++++++++++++++++")
-            print(user_info['givenName'])
-            print(user_info['sn'])
-            print(user_info['homePhone'])
-            print(user_info['mail'])
-            print(user_info['memberOf'][0])
-            print(user_info['memberOf'])
-            print("<<<<<<<<<<<<<<<<<< connected")
+            try:
+                s = Server('www.chf2015.com', port=636, get_info=GET_ALL_INFO)
+                c = Connection(s, auto_bind = True, client_strategy = STRATEGY_SYNC, user=newUserName, password=newPassword, authentication=AUTH_SIMPLE)
+                search_results = c.search(
+                    search_base = 'DC=chf2015,DC=local',
+                    search_filter = '(userPrincipalName='+newUserName+')',
+                    attributes = ['*']
+                )
             
-            newFirstName = user_info['givenName']
-            newLastName = user_info['sn']
-            newPhone = user_info['homePhone']
-            newEmail = user_info['mail']
-            newGroups = user_info['memberOf'][0]
-            newGroups = newGroups.split(",")
-            for k in newGroups:
-                print(k)
+                user_info = c.response[0]['attributes']
+                print(s.info) # display info from the DSE. OID are decoded when recognized by the library
+                print(">>>>> print connection results")
+                print("------------------------------------")
+                print(c.result)
+                print(c.response) #it's okay if this is None
+                print("++++++++++++++++++++++++++")
+                print(user_info['givenName'])
+                print(user_info['sn'])
+                print(user_info['homePhone'])
+                print(user_info['mail'])
+                print(user_info['memberOf'][0])
+                print(user_info['memberOf'])
+                print("<<<<<<<<<<<<<<<<<< connected")
+                
+                newFirstName = user_info['givenName']
+                newLastName = user_info['sn']
+                newPhone = user_info['homePhone']
+                newEmail = user_info['mail']
+                newGroups = user_info['memberOf'][0]
+                newGroups = newGroups.split(",")
+                for k in newGroups:
+                    print(k)
 
-            newuser, created = hmod.User.objects.get_or_create(username=newUserName)
-            if created:
-                newuser.first_name = newFirstName
-                newuser.last_name = newLastName
-                newuser.email = newEmail
-                newuser.phone = newPhone
-                newuser.set_password(newPassword)
-                newuser.save()
-                if "CN=Agent" in newGroups:
-                    newuser.groups.add(3)
-                elif "CN=Administrators" in newGroups:
-                    newuser.groups.add(1)
-            print("<<<<<<<<<<<<<<<<<< user")
-                #print(newuser)
-            #except:
-                #pass
+                newuser, created = hmod.User.objects.get_or_create(username=newUserName)
+                if created:
+                    newuser.first_name = newFirstName
+                    newuser.last_name = newLastName
+                    newuser.email = newEmail
+                    newuser.phone = newPhone
+                    newuser.set_password(newPassword)
+                    newuser.save()
+                    if "CN=Agent" in newGroups:
+                        newuser.groups.add(3)
+                    elif "CN=Administrators" in newGroups:
+                        newuser.groups.add(1)
+                print("<<<<<<<<<<<<<<<<<< user")
+                    #print(newuser)
+            except:
+                pass
             print("<<<<<<<<<<<<<<<<<< would have tried to log in here")
             user = authenticate(username=newUserName,
                      password=newPassword)
