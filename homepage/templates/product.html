@@ -12,16 +12,16 @@
 </div>
 <div class="tableContain">
     <h1>Products</h1>
-    <div id="carousel-outside"> 
+    <!--<div id="carousel-outside"> 
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
+      <!-- Indicators 
       <ol class="carousel-indicators">
         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
       </ol>
 
-      <!-- Wrapper for slides -->
+      <!-- Wrapper for slides 
         <div class="carousel-inner" role="listbox">
             %for product in products:
                 <div class="item">
@@ -37,7 +37,7 @@
                     Products
                     </div>
                 </div>
-            <!-- Controls -->
+            <!-- Controls 
             <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -50,16 +50,31 @@
         </div>
         </div>
     </div>
-    
+    -->
+
+    <div class="sweetPics">
+    %for product in products:
+        <div>
+            <a href="/homepage/product_detail/${ product.id }">
+                <img src="${ product.product_specification.photo.image }" alt="${ product.product_specification.name }">
+            </a>
+           <h2> ${ product.product_specification.name } </h2>
+        </div>
+    %endfor
+    </div>
     <div class="row">
         %for product in products:
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <img src="${ product.product_specification.photo.image }" alt="${ product.product_specification.name }">
+                    <a href="/homepage/product_detail/${ product.id }">
+                        <img src="${ product.product_specification.photo.image }" alt="${ product.product_specification.name }">
+                    </a>
                     <div class="caption">
                         <h3>${ product.product_specification.name } <br> <small> Price: ${ product.product_specification.price } </small></h3>
-                        <p>${ product.product_specification.description }</p>
-                        <p><a href="/homepage/product_detail/${ product.id }" class="btn btn-primary" role="button">Buy Now</a></p>
+                        <p>
+                            <button data-pid="${ product.id }" class="add_button btn btn-warning">Buy Now</button>
+                            <a href="/homepage/product_detail/${ product.id }" class="btn btn-primary" role="button">Product Details</a>
+                        </p>
                     </div>
                 </div>
             </div>

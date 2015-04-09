@@ -13,12 +13,78 @@
 	-webkit-transition: all .5s;
 	-moz-transition: all .5s;
 }
+.thumbnail p {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+.thumbnail button {
+	margin-right: 20px;
+}
+
+td img {
+	max-height: 50px;
+	max-width: 50px;
+}
+.thumbnail img {
+	margin-top: 20px;
+}
+
+.caption h3 {
+	text-align: center;
+	margin-bottom: 25px;
+}
 
 input {
 	display: inline;
 	width: 45px
 }
+.slick-dots li button:before {
+  font-size: 20px;
+}
 
+.slick-prev {
+  left: 250px;
+}
+.slick-next{
+	right: 250px;
+}
+.sweetPics {
+	margin-bottom: 80px;
+}
+.sweetPics h2 {
+	margin-top: 50px;
+	margin-bottom: 0px;
+}
+.sweetPics button {
+	height: 100px;
+	width: 100px;
+}
+.slick-prev:hover, .slick-next:hover {
+	color: black;
+}
+.slick-prev:before, .slick-next:before {
+  font-family: 'slick';
+  font-size: 40px;
+  line-height: 1;
+  opacity: .75;
+  color: grey;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li button {
+  width: 40px;
+  height: 40px;
+}
+.slick-slide img {
+	max-width: 400px;
+	max-height: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.slick-list {
+	  text-align: center;
+}
 .productstuff{
 	display: inline-block;
 }
@@ -42,7 +108,9 @@ input {
 #search + input{
 	width: 100px;
 }
-
+.slick-next, .slick-prev {
+	background-color: white;
+}
 .productDiv img {
 	max-height: 100px;
 	max-width: 150px;
@@ -72,13 +140,16 @@ img {
 	max-width: 100%;
 	/*padding-left: 10%;
 	padding-right: 5%;*/
+	border-radius: 4px;
+	
 
 }
 .item {
 	height: 400px;
 	width: 600px;
-	margin-right: auto;
-	margin-left: auto;
+	/*margin-right: auto;
+	margin-left: auto;*/
+
 }
 
 #carousel-outside {
@@ -88,11 +159,20 @@ img {
 
 }
 .carousel-inner {
-	max-width: 800px;
+	max-width: 400px;
 	text-align: center;
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 150px;
 	margin-top: 50px;
 
+}
+
+#carousel-example-generic {
+	background-color: white;
+}
+
+.carousel-control{
+	opacity: .2;
+	border-radius: 4px;
 }
