@@ -21,7 +21,6 @@ def process_request(request):
 
     return templater.render_to_response(request, 'event.html', params)
 
-
 @view_function
 # @permission_required('homepage.change_event', login_url='/homepage/invalid_permissions/')
 def edit(request):
@@ -30,11 +29,11 @@ def edit(request):
     try:
         event = hmod.Event.objects.get(id=request.urlparams[0])
     except hmod.Event.DoesNotExist:
-        return HttpResponseRedirect('/homepage/event/')
+        return HttpResponseRedirect('/homepage/event.admin/')
 
-    class AddressModelChoiceField(ModelChoiceField):
-        def label_from_instance(self, obj):
-            return str(obj.id) + " - " + obj.street1 + ", " + obj.street2 + ", " + obj.city + ", " + obj.state + ", " + str(obj.zip_code) + ", " + obj.country
+   # class AddressModelChoiceField(ModelChoiceField):
+       # def label_from_instance(self, obj):
+          #  return str(obj.id) + " - " + obj.street1 + ", " + obj.street2 + ", " + obj.city + ", " + obj.state + ", " + str(obj.zip_code) + ", " + obj.country
 
     class EventEditForm(forms.Form):
 
@@ -44,10 +43,10 @@ def edit(request):
         end_date = forms.DateTimeField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
         map_file_name = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
         venue_name = forms.CharField(required=True, max_length= 100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-        address_id = AddressModelChoiceField(
-            queryset=hmod.Address.objects.all(),
-            widget=forms.Select(attrs={'class': 'form-control'})
-        )
+        # address_id = AddressModelChoiceField(
+        #     queryset=hmod.Address.objects.all(),
+        #     widget=forms.Select(attrs={'class': 'form-control'})
+        # )
 
     form = EventEditForm(initial={
     'name': event.name,
@@ -56,20 +55,20 @@ def edit(request):
     'end_date': event.end_date,
     'map_file_name': event.map_file_name,
     'venue_name': event.venue_name,
-    'address_id': int(event.address_id),
+    # 'address_id': event.address_id,
     })
     if request.method == 'POST':
         form = EventEditForm(request.POST)
         if form.is_valid():
-            event.name = form.cleaned_data('name')
-            event.description = form.cleaned_data('description')
+            event.name = form.cleaned_data['name']
+            event.description = form.cleaned_data['description']
             event.start_date = form.cleaned_data['start_date']
             event.end_date = form.cleaned_data['end_date']
             event.map_file_name = form.cleaned_data['map_file_name']
-            event.venue_name = form.cleaned_data['address']
-            event.address_id = form.cleaned_data['address_id']
+            event.venue_name = form.cleaned_data['venue_name']
+            # event.address_id = form.cleaned_data['address_id']
             event.save()
-            return HttpResponseRedirect('/homepage/event/')
+            return HttpResponseRedirect('/homepage/event.admin/')
 
     params['form'] = form
     return templater.render_to_response(request, 'event.edit.html', params)
@@ -87,7 +86,8 @@ def create(request):
     event.end_date = '2015-01-01 07:30:00'
     event.map_file_name = 'map file name'
     event.venue_name = 'venue'
-    event.address_id = hmod.Address.objects.first().id
+    #event.address_id = hmod.Address.objects.first().id
+    #event.photo_id = ''
     event.save()
 
     return HttpResponseRedirect('/homepage/event.edit/{}/'.format(event.id))
@@ -100,8 +100,18 @@ def delete(request):
     try:
         event = hmod.Event.objects.get(id=request.urlparams[0])
     except hmod.Event.DoesNotExist:
-        return HttpResponseRedirect('/homepage/event/')
+        return HttpResponseRedirect('/homepage/event.admin/')
 
     event.delete()
 
-    return HttpResponseRedirect('/homepage/event/'.format(event.id))
+    return HttpResponseRedirect('/homepage/event.admin/'.format(event.id))
+
+@view_function
+def admin(request):
+    params = {}
+
+    events= hmod.Event.objects.all().order_by('id')
+
+    params['events'] = events
+
+    return templater.render_to_response(request, 'event.admin.html', params)
