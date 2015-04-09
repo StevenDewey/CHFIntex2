@@ -1,0 +1,41 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+    <head>
+        <title>Areas</title>
+    </head>
+
+    <div class="page-header">
+        <h1> Areas <small></small></h1>
+    </div>
+    <a href="/homepage/area.create/" class="btn btn-warning create_new_btn" style="margin-bottom: 10px">Create New Area</a>
+    <table id="user_table" class="table table-bordered table-hover">
+        <tr>
+            <th>  </th>
+            <th> ID </th>
+            <th> Name </th>
+            <th> Description </th>
+            <th> Place Number </th>
+            <th> Coordinator </th>
+            <th> Supervisor </th>
+            <th> Event </th>
+        </tr>
+        %for area in areas:
+            <tr>
+                <td>
+                    <a href="/homepage/area.edit/${ area.id }/">Edit</a>
+                    <span> | </span>
+                    <a href="/homepage/area.delete/${ area.id }/">Delete</a>
+                </td>
+                <td>${ area.id }</td>
+                <td>${ area.name }</td>
+                <td>${ area.description }</td>
+                <td>${ area.place_number }</td>
+                <td>${ area.coordinator.first_name + " " + area.coordinator.last_name }</td>
+                <td>${ area.supervisor.first_name + " " + area.supervisor.last_name }</td>
+                <td>${ area.event.name }</td>
+            </tr>
+        %endfor
+    </table>
+</%block>

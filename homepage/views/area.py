@@ -21,55 +21,44 @@ def process_request(request):
 
     return templater.render_to_response(request, 'area.html', params)
 
-
 @view_function
 # @permission_required('homepage.change_area', login_url='/homepage/invalid_permissions/')
 def edit(request):
     params = {}
 
     try:
-        area = hmod.area.objects.get(id=request.urlparams[0])
-    except hmod.area.DoesNotExist:
-        return HttpResponseRedirect('/homepage/area/')
-
-    class AddressModelChoiceField(ModelChoiceField):
-        def label_from_instance(self, obj):
-            return str(obj.id) + " - " + obj.street1 + ", " + obj.street2 + ", " + obj.city + ", " + obj.state + ", " + str(obj.zip_code) + ", " + obj.country
+        area = hmod.Area.objects.get(id=request.urlparams[0])
+    except hmod.Area.DoesNotExist:
+        return HttpResponseRedirect('/homepage/area.admin/')
 
     class areaEditForm(forms.Form):
 
         name = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
         description = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
-        start_date = forms.DateTimeField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
-        end_date = forms.DateTimeField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
-        map_file_name = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-        venue_name = forms.CharField(required=True, max_length= 100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-        address_id = AddressModelChoiceField(
-            queryset=hmod.Address.objects.all(),
-            widget=forms.Select(attrs={'class': 'form-control'})
-        )
+        place_number = forms.CharField(required=False, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        coordinator_id = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        supervisor_id = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        event_id = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     form = areaEditForm(initial={
     'name': area.name,
     'description': area.description,
-    'start_date': area.start_date,
-    'end_date': area.end_date,
-    'map_file_name': area.map_file_name,
-    'venue_name': area.venue_name,
-    'address_id': int(area.address_id),
+    'place_number': area.place_number,
+    'coordinator_id': area.coordinator_id,
+    'supervisor_id': area.supervisor_id,
+    'event_id': area.event_id,
     })
     if request.method == 'POST':
         form = areaEditForm(request.POST)
         if form.is_valid():
-            area.name = form.cleaned_data('name')
-            area.description = form.cleaned_data('description')
-            area.start_date = form.cleaned_data['start_date']
-            area.end_date = form.cleaned_data['end_date']
-            area.map_file_name = form.cleaned_data['map_file_name']
-            area.venue_name = form.cleaned_data['address']
-            area.address_id = form.cleaned_data['address_id']
+            area.name = form.cleaned_data['name']
+            area.description = form.cleaned_data['description']
+            area.place_number = form.cleaned_data['place_number']
+            area.coordinator_id = form.cleaned_data['coordinator_id']
+            area.supervisor_id = form.cleaned_data['supervisor_id']
+            area.event_id = form.cleaned_data['event_id']
             area.save()
-            return HttpResponseRedirect('/homepage/area/')
+            return HttpResponseRedirect('/homepage/area.admin/')
 
     params['form'] = form
     return templater.render_to_response(request, 'area.edit.html', params)
@@ -80,14 +69,14 @@ def edit(request):
 def create(request):
 
     '''Creates a new area'''
-    area = hmod.area()
+    area = hmod.Area()
     area.name = 'name'
     area.description = 'description'
-    area.start_date = '2015-01-01 07:30:00'
-    area.end_date = '2015-01-01 07:30:00'
-    area.map_file_name = 'map file name'
-    area.venue_name = 'venue'
-    area.address_id = hmod.Address.objects.first().id
+    area.place_number = 1
+    area.coordinator_id = 1
+    area.supervisor_id = 1
+    area.event_id = 1
+    area.photo_id = 22
     area.save()
 
     return HttpResponseRedirect('/homepage/area.edit/{}/'.format(area.id))
@@ -98,10 +87,20 @@ def delete(request):
 
     '''delete an area'''
     try:
-        area = hmod.area.objects.get(id=request.urlparams[0])
-    except hmod.area.DoesNotExist:
-        return HttpResponseRedirect('/homepage/area/')
+        area = hmod.Area.objects.get(id=request.urlparams[0])
+    except hmod.Area.DoesNotExist:
+        return HttpResponseRedirect('/homepage/area.admin/')
 
     area.delete()
 
-    return HttpResponseRedirect('/homepage/area/'.format(area.id))
+    return HttpResponseRedirect('/homepage/area.admin/'.format(area.id))
+
+@view_function
+def admin(request):
+    params = {}
+
+    areas= hmod.Area.objects.all().order_by('id')
+
+    params['areas'] = areas
+
+    return templater.render_to_response(request, 'area.admin.html', params)

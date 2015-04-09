@@ -34,8 +34,8 @@
                 <td>${ user.address.country }</td>
             </tr>
         </table>
-        <a href="/homepage/edit_account/${ request.user.id }/${ request.user.address_id }"><button id="edit_btn" type="button" class="btn btn-default">Edit</button></a>
-        <a href="/homepage/edit_account.password/${ user.id }/"><button id="change_password_btn" type="button" class="btn btn-default">Change Password</button></a>
+        <a href="/homepage/edit_account/${ request.user.id }/${ request.user.address_id }"><button id="edit_btn" type="button" class="btn btn-warning">Edit</button></a>
+        <a href="/homepage/edit_account.password/${ user.id }/"><button id="change_password_btn" type="button" class="btn btn-primary">Change Password</button></a>
     </%block>
 </body>
 </html>
