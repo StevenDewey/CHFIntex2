@@ -102,9 +102,8 @@ def create(request):
             rental.quantity_on_hand = 1
             rental.shelf_location = 2
             rental.product_specification = ProdSpec
-            rental.price_per_day = 22.22
-            rental.replacement_price = 22.22
             rental.times_rented = 0
+            rental.for_sale = False
             rental.price_per_day = form.cleaned_data['PriceDay']
             rental.replacement_price = form.cleaned_data['ReplacementPrice']
             rental.save()
