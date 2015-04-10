@@ -4,10 +4,6 @@ from django_mako_plus.controller.router import get_renderer
 from django_mako_plus.controller import view_function
 from datetime import datetime, timedelta
 from django.core.mail import send_mail
-from django import forms
-from django.forms import ModelChoiceField
-from django.contrib.auth.decorators import permission_required
-from django.http import HttpResponse
 import homepage.models as hmod
 
 templater = get_renderer('homepage')
@@ -40,7 +36,7 @@ def success(request):
     params['overdue_rentals90'] = overdue_rentals90
     overdue_rentals90p = hmod.RentalItem.objects.filter(date_due__lte = datetime.today()-timedelta(days=90)).order_by('date_due')
     params['overdue_rentals90p'] = overdue_rentals90p
-    complete = '<h4 color="green">Emails sent successfully!</h4>'
+    complete = "<p class='bg-success'>Emails sent successfully!</p>"
     params['complete'] = complete
 
     return templater.render_to_response(request, 'overdue_rental.html', params)
