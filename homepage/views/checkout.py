@@ -128,7 +128,8 @@ def process_cc(request):
             emailbody = templater.render(request, 'checkout_rental_email.html', params)
             send_mail("Thank You -- CHF Receipt", emailbody, 'Support@chf2015.com', [user_email], html_message=emailbody, fail_silently=False)
 
-            request.session.flush()
+            request.session['rentalShopCartDict'].clear()
+            request.session.modified = True
 
             return HttpResponseRedirect('/homepage/thank_you/')
 
@@ -157,6 +158,7 @@ def process_cc(request):
             emailbody = templater.render(request, 'checkout_product_email.html', params)
             send_mail("Thank You -- CHF Receipt", emailbody, 'Support@chf2015.com', [user_email], html_message=emailbody, fail_silently=False)
 
-            request.session.flush()
+            request.session['shopCartDict'].clear()
+            request.session.modified = True
 
             return HttpResponseRedirect('/homepage/thank_you/')
