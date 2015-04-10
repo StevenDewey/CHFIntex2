@@ -82,6 +82,8 @@ def fees(request):
     else:
         days_late = dl
 
+    lateFee = int(ri.rental_product.cost) * 5 * .01 * days_late #   5% per day late
+
     if request.method == 'POST':
         form = feesForm(request.POST)
         if form.is_valid():
@@ -89,7 +91,7 @@ def fees(request):
                 lateFee = hmod.LateFee()
                 lateFee.waived = form.cleaned_data['lateWaived']
                 lateFee.days_late = days_late
-                lateFee.amount = int(ri.rental_product.cost) * int(form.cleaned_data['feePercent']) * .01 * days_late
+                lateFee.amount = lateFee
                 # lateFee.order_id = hmod.Order.objects.get(id = p)
                 lateFee.order_id = p
                 lateFee.rental_item = ri
@@ -111,14 +113,18 @@ def fees(request):
 
             return HttpResponseRedirect('/homepage/rental_return/{}/'.format('success'))
 
-
+    params['lateFee'] = lateFee
     params['days_late'] = days_late
+
     rental = hmod.RentalItem.objects.get(id=request.urlparams[0])
-    params['rental'] = rental
     product = hmod.RentalProduct.objects.get(id=rental.rental_product.id)
     rentalItems = hmod.RentalItem.objects.get(rental_product = product.id)
     damages = hmod.DamageFee.objects.filter(rental_item = rentalItems.id)
+    params['rental'] = rental
+    params['product'] = product
+    params['rentalItems'] = rentalItems
     params['damages'] = damages
+
     params['success'] = ""
     error = ''
     params['error'] = error
@@ -129,7 +135,6 @@ def fees(request):
 
 
 class feesForm(forms.Form):
-    feePercent = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     lateWaived = forms.BooleanField(required=False, )
     damageFee = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     waived = forms.BooleanField(required=False, )

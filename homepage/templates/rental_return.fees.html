@@ -7,18 +7,21 @@
             <div class="rental_info">
                 <form id="loginform" method="POST" action="'/homepage/rental_return.fees/{}/'.format(p) + '{}/'.format(g)">
                     <table>
-                        <span class="bold" id="float">Days Late: </span><div class="centered">${ days_late } days</div>
+                        <div class="centered">Days Late: ${ days_late }</div>
+                        <div class="centered">Late Fee: $${ lateFee }</div>
+                        <hr color="black" size="2" width="50%">
                         ${ form }
                     </table>
                     <br>
-                    Past Damages:
+
+                    <b>Past Damages:</b>
+                    <br><br>
                     %for d in damages:
-                    <tr>
-                        <td>
-                            ${ d.description } |
-                        </td>
-                    </tr>
+                        <ul>
+                            <li>${ d.description }</li>
+                        </ul>
                     %endfor
+
                     <br><br>
                     <button type="submit" class="btn btn-warning">Submit</button>
                 </form>
@@ -28,14 +31,15 @@
                 ${ rental.order.customer.first_name + " " + rental.order.customer.last_name } <br>
                 ${ rental.order.customer.email } <br>
                 ${ rental.order.customer.phone }  <br>
+                <img src="${ rental.order.customer.photo.image }"/>
                 <hr color="black" size="2" width="50%">
                 <h4>Rental</h4>
                 <span class="bold">Rent Date: </span>${ rental.date_out } <br><br>
                 <span class="bold">Due Date: </span>${ rental.date_due } <br><br>
                 ${ rental.rental_product.product_specification.name } <br><br>
                 <img src="${ rental.rental_product.product_specification.photo.image }"/> <br>
-
             </div>
+
             <div class="order_info">
 
 
