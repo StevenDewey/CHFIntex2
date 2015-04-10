@@ -17,6 +17,7 @@ def process_request(request):
 
     rentals = hmod.RentalProduct.objects.all()
     params['rentals'] = rentals
+    request.session['ptype'] = "rental"
 
     return templater.render_to_response(request, 'rental.html', params)
 

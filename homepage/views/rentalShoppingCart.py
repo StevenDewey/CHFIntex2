@@ -8,9 +8,21 @@ import homepage.models as hmod
 def process_request(request):
     params = {}
 
-    rental = hmod.RentalProduct.objects.get(id=request.urlparams[0])
+    request.session['ptype'] = "rental"
 
-    params['rental'] = rental
+    if 'rentalShopCartDict' not in request.session:
+        request.session['rentalShopCartDict'] = {}
+
+    rentalProductDictionary = {}
+
+    orderTotal = 0
+    for k,v in request.session['rentalShopCartDict'].items():
+        rentalProductObject = hmod.RentalProduct.objects.get(id=k)
+        rentalProductDictionary[rentalProductObject] = int(v)
+        orderTotal += (rentalProductObject.price_per_day * v)
+
+    params['rentalProducts'] = rentalProductDictionary
+    params['orderTotal'] = orderTotal
 
     return dmp_render_to_response(request, 'rentalShoppingCart.html', params)
 

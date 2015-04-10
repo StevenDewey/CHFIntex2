@@ -24,7 +24,15 @@ $(function() {
               },//success
           });//ajax
       });//click
-
+    $('#rent_shop_cart_btn').on('click', function() {
+        $('#shoppingCart').modal('show');
+        $.ajax({
+            url: '/homepage/rentalShoppingCart/',
+            success: function(data){
+                $('#shoppingCart').find('.modal-body').html(data)
+            },//success
+        });//ajax
+    });//click
 });
 
 /*
