@@ -14,10 +14,10 @@
 
 .user_info{
 	display: inline-block;
-  text-align: left;
-  height: 440px;
+    text-align: left;
+    height: 440px;
 	width: 300px;
-	background-color: #ededed;
+	/*background-color: #ededed;*/
 	border-radius: 5px;
 	padding: 10px;
 	margin: 10px;
@@ -34,10 +34,9 @@
 
 .rental_info{
 	display: inline-block;
-  text-align: left;
-  min-height: 300px;
+    text-align: left;
+    min-height: 300px;
 	min-width: 250px;
-	background-color: #ededed;
 	border-radius: 5px;
 	padding: 10px;
 	margin: 10px;
@@ -47,6 +46,6 @@
 }
 
 .centered{
-    text-align: center;
+    text-align: left;
     font-size: 20px;
 }
