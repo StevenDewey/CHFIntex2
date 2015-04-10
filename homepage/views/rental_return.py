@@ -129,10 +129,10 @@ def fees(request):
 
 
 class feesForm(forms.Form):
-    feePercent = forms.ChoiceField(choices= [(x, x) for x in range(1, 100)])
-    lateWaived = forms.BooleanField(required=False)
-    damageFee = forms.ChoiceField(choices=[(x, x) for x in range(1, 50)])
-    waived = forms.BooleanField(required=False)
-    description = forms.CharField(required= True, widget=forms.Textarea)
+    feePercent = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    lateWaived = forms.BooleanField(required=False, )
+    damageFee = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    waived = forms.BooleanField(required=False, )
+    description = forms.CharField(required= True, widget=forms.Textarea(attrs={'class': 'form-control'}))
     orderID = forms.CharField(widget=forms.HiddenInput(), initial='class')
     RentalItemID = forms.CharField(widget=forms.HiddenInput(), initial='class')
