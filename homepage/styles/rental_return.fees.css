@@ -45,3 +45,8 @@
 	-webkit-transition: all .5s;
 	-moz-transition: all .5s;
 }
+
+.centered{
+    text-align: center;
+    font-size: 20px;
+}

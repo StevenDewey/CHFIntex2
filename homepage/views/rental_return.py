@@ -20,7 +20,7 @@ def process_request(request):
     form = rentalReturnForm()
 
     if request.urlparams[0] == "success":
-        params['success'] = "<h3>Success! Item returned</h3>"
+        params['success'] = "<p class='bg-success'>Success! Item returned</p>"
     else:
         params['success'] = ""
 
@@ -33,13 +33,10 @@ def process_request(request):
             try:
                 rentalitem = hmod.RentalItem.objects.get(id=form.cleaned_data['rentalID'])
                 rentalitem.date_in = datetime.today()
-                print('>>>>>>>>>>>>>>>>>>')
-                print(rentalitem.id)
-                print(rentalitem.date_in)
                 rentalitem.save()
 
             except hmod.RentalItem.DoesNotExist:
-                error = '<h3>Invalid rental id. Try again or give up.</h3>'
+                error = "<p class='bg-danger'>Invalid rental id. Try again or give up.</p>"
                 params['error'] = error
                 params['form'] = form
                 params['action'] = action
@@ -84,13 +81,11 @@ def fees(request):
         days_late = 0
     else:
         days_late = dl
-    print('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 1')
 
     if request.method == 'POST':
         form = feesForm(request.POST)
         if form.is_valid():
             try:
-                print('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 4')
                 lateFee = hmod.LateFee()
                 lateFee.waived = form.cleaned_data['lateWaived']
                 lateFee.days_late = days_late
@@ -99,7 +94,7 @@ def fees(request):
                 lateFee.order_id = p
                 lateFee.rental_item = ri
                 lateFee.save()
-                print('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 5')
+
                 damageFee = hmod.DamageFee()
                 damageFee.amount = form.cleaned_data['damageFee']
                 damageFee.waived = form.cleaned_data['waived']
@@ -107,18 +102,16 @@ def fees(request):
                 damageFee.order_id = form.cleaned_data['orderID']
                 damageFee.rental_item_id = form.cleaned_data['RentalItemID']
                 damageFee.save()
-                print('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 6')
 
             except hmod.RentalItem.DoesNotExist:
-                error = '<h3>Invalid rental id. Try again or give up.</h3>'
+                error = "<p class='bg-danger'>Invalid rental id. Try again or give up.</p>"
                 params['error'] = error
                 params['form'] = form
                 return templater.render_to_response(request, 'rental_return.html', params)
 
-            print('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 10')
             return HttpResponseRedirect('/homepage/rental_return/{}/'.format('success'))
 
-    print('<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 2')
+
     params['days_late'] = days_late
     rental = hmod.RentalItem.objects.get(id=request.urlparams[0])
     params['rental'] = rental
@@ -136,19 +129,10 @@ def fees(request):
 
 
 class feesForm(forms.Form):
-    feePercent = forms.ChoiceField(choices= [(x, x) for x in range(1, 100)])
-    lateWaived = forms.BooleanField(required=False)
-    damageFee = forms.ChoiceField(choices=[(x, x) for x in range(1, 50)])
-    waived = forms.BooleanField(required=False)
-    description = forms.CharField(widget=forms.Textarea)
+    feePercent = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    lateWaived = forms.BooleanField(required=False, )
+    damageFee = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    waived = forms.BooleanField(required=False, )
+    description = forms.CharField(required= True, widget=forms.Textarea(attrs={'class': 'form-control'}))
     orderID = forms.CharField(widget=forms.HiddenInput(), initial='class')
     RentalItemID = forms.CharField(widget=forms.HiddenInput(), initial='class')
-
-    def clean(self):
-        damageFee = self.cleaned_data['damageFee']
-        description = self.cleaned_data['description']
-
-        if damageFee == None:
-            raise forms.ValidationError('Incorrect Fee')
-        if description == None:
-            raise forms.ValidationError('description is required')
