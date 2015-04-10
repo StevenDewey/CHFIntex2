@@ -62,6 +62,7 @@ def edit(request):
             rental.price_per_day = form.cleaned_data['PriceDay']
             rental.replacement_price = form.cleaned_data['ReplacementPrice']
             # rental.product_specification.photo.image = form.cleaned_data['ImagePath']
+            rental.product_specification.save()
             rental.save()
             return HttpResponseRedirect('/homepage/rental.admin/')
 

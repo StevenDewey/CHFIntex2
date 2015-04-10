@@ -45,25 +45,49 @@ def delete(request):
 
 @view_function
 def create(request):
+    params = {}
+
+    class MTOEditForm(forms.Form):
+
+        name = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        price = forms.DecimalField(max_digits=10, decimal_places=2, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        description = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        manufacturer = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        average_cost = forms.DecimalField(max_digits=10, decimal_places=2, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        order_form_name = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        production_time = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        category_id = forms.IntegerField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+    form = MTOEditForm()
 
     '''Creates a new event'''
-    mto = hmod.ProductSpecification()
-    mto.type = 'mto'
-    mto.name = 'name'
-    mto.price = 10.25
-    mto.description = 'description'
-    mto.manufacturer = 'manufacturer'
-    mto.average_cost = 2.11
-    mto.sku = 'sku'
-    mto.order_form_name = 'An order form name'
-    mto.production_time = '07:30:00'
-    mto.photo_id = 22
-    mto.category_id = 1
-    mto.vendor_id = 3
-    mto.area_id = 2
-    mto.save()
+    if request.method == 'POST':
+        form = MTOEditForm(request.POST)
+        if form.is_valid():
+            mto = hmod.ProductSpecification()
+            mto.type = "mto"
+            mto.name = form.cleaned_data['name']
+            mto.price = form.cleaned_data['price']
+            mto.description = form.cleaned_data['description']
+            mto.manufacturer = form.cleaned_data['manufacturer']
+            mto.average_cost = form.cleaned_data['average_cost']
+            mto.category_id = form.cleaned_data['category_id']
+            mto.order_form_name = form.cleaned_data['order_form_name']
+            mto.production_time = form.cleaned_data['production_time']
+            mto.photo_id = 22
+            mto.vendor_id = 3
+            mto.area_id = 2
+            mto.sku = 2
+            mto.save()
+            return HttpResponseRedirect('/homepage/mto_product.admin/')
+        else:
+            params['error'] = "<p class='bg-danger'>All fields are required</p>"
+            params['form'] = form
+            return templater.render_to_response(request, 'mto_product.edit.html', params)
 
-    return HttpResponseRedirect('/homepage/mto_product.edit/{}/'.format(mto.id))
+    params['error'] = ""
+    params['form'] = form
+    return templater.render_to_response(request, 'mto_product.edit.html', params)
 
 @view_function
 def edit(request):
@@ -76,7 +100,6 @@ def edit(request):
 
     class MTOEditForm(forms.Form):
 
-        type = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
         name = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
         price = forms.DecimalField(max_digits=10, decimal_places=2, widget=forms.TextInput(attrs={'class': 'form-control'}))
         description = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -88,7 +111,6 @@ def edit(request):
         category_id = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     form = MTOEditForm(initial={
-    'type': mto.type,
     'name': mto.name,
     'price': mto.price,
     'description': mto.description,
@@ -102,7 +124,6 @@ def edit(request):
     if request.method == 'POST':
         form = MTOEditForm(request.POST)
         if form.is_valid():
-            mto.type = form.cleaned_data['type']
             mto.name = form.cleaned_data['name']
             mto.price = form.cleaned_data['price']
             mto.description = form.cleaned_data['description']
@@ -114,6 +135,11 @@ def edit(request):
             mto.category_id = form.cleaned_data['category_id']
             mto.save()
             return HttpResponseRedirect('/homepage/mto_product.admin/')
+        else:
+            params['error'] = "<p class='bg-danger'>All fields are required</p>"
+            params['form'] = form
+            return templater.render_to_response(request, 'mto_product.edit.html', params)
 
+    params['error'] = ""
     params['form'] = form
     return templater.render_to_response(request, 'mto_product.edit.html', params)

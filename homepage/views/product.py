@@ -51,22 +51,20 @@ def edit(request):
     params = {}
 
     try:
-        product = hmod.RentalProduct.objects.get(id=request.urlparams[0])
-    except hmod.RentalProduct.DoesNotExist:
+        product = hmod.SerializedProduct.objects.get(id=request.urlparams[0])
+    except hmod.SerializedProduct.DoesNotExist:
         return HttpResponseRedirect('/homepage/product.admin/')
 
     class productEditForm(forms.Form):
         Name = forms.CharField(required=True, max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'}))
         Description = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-        PriceDay = forms.DecimalField(max_digits=10, decimal_places=2, widget=forms.TextInput(attrs={'class': 'form-control'}))
-        ReplacementPrice = forms.DecimalField(max_digits=10, decimal_places=2, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        Price = forms.DecimalField(max_digits=10, decimal_places=2, widget=forms.TextInput(attrs={'class': 'form-control'}))
         # ImagePath = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     form = productEditForm(initial={
         'Name': product.product_specification.name,
         'Description': product.product_specification.description,
-        'PriceDay': product.price_per_day,
-        'ReplacementPrice': product.replacement_price,
+        'Price': product.product_specification.price,
         # 'ImagePath': product.product_specification.photo.image,
     })
     if request.method == 'POST':
@@ -74,10 +72,10 @@ def edit(request):
         if form.is_valid():
             product.product_specification.name = form.cleaned_data['Name']
             product.product_specification.description = form.cleaned_data['Description']
-            product.price_per_day = form.cleaned_data['PriceDay']
-            product.replacement_price = form.cleaned_data['ReplacementPrice']
+            product.product_specification.price = form.cleaned_data['Price']
             # product.product_specification.photo.image = form.cleaned_data['ImagePath']
-            product.save()
+            product.product_specification.save()
+            print(product.product_specification.name)
             return HttpResponseRedirect('/homepage/product.admin/')
 
     params['form'] = form
@@ -140,4 +138,5 @@ def delete(request):
         return HttpResponseRedirect('/homepage/product.admin/')
 
     product.delete()
+    return HttpResponseRedirect('/homepage/product.admin/')
 
