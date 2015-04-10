@@ -1,32 +1,41 @@
 <%inherit file="base.htm" />
 
 <%block name="content">
-
-<head>
-    <title>Event Detail</title>
-</head>
-
+    
+    <head>
+        <title>Event Details</title>
+    </head>
     <a href="/homepage/event"><button class="right btn btn-primary">Back To Events</button></a>
-    <div id="event_detail_div">
-        <div class="eventImageDiv">
-            <img src="${ event.photo.image }">
-        </div>
-        <div class="eventDiv">
-            <h1 class="center"> ${ event.name } <br> </h1>
-            <p><b>Description:</b> </p>${ event.description }<br><br>
-            <p><b>Dates:</b> ${ event.start_date } - ${ event.end_date }</p><br><br>
-            <p><b>Venue:</b> ${ event.venue_name }</p><br><br>
-            <p><b>Map:</b> </p><a href="${ event.map_file_name }" download>Download Here!</a><br><br>
-        </div><br>
-        <hr color="#c7c34c" size="2" width="50%">
-        <h1>Areas</h1>
-        %for area in areas:
-          <a href="/homepage/area_detail/${ area.id }/${ event.id }">
-            <div class="areaDiv">
-              <p> ${ area.name }</p>
-              <img src="${ area.photo.image }"/>
+    <div class="prodspec">
+        <div class="thumbnail">
+            
+                <img src="${ event.photo.image }" alt="${ event.name }">
+            
+            <div class="caption">
+                <h3>${ event.name } </h3>
+                <h4><b>Description: </b>${ event.description } </h4>
+                <h4><b>Dates:</b> ${ event.start_date } - ${ event.end_date }</h4>
+                <h4><b>Venue:</b> ${ event.venue_name }</h4>
+                <h4><b>Map:</b> <a href="${ event.map_file_name }" download>Download Here!</a></h4>
             </div>
-          </a>
-        %endfor
+        </div>
+    </div>
+     <h1>Areas</h1>
+    <div class="row">
+        %for area in areas:
+            <div class="col-md-3">
+                <div class="stuff thumbnail">
+                     <a href="/homepage/area_detail/${ area.id }/${ event.id }">
+                          <img src="${ area.photo.image }"/>
+                        </a>
+
+                    <div class="caption">
+                       <h3> ${ area.name }</h3>
+                        <p><a href="/homepage/area_detail/${ area.id }/${ event.id }" class="btn btn-primary" role="button">Area Details</a></p>
+                    </div>
+                </div>
+            </div>
+         %endfor
     </div>
  </%block>
+ 

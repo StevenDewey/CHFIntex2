@@ -1,6 +1,12 @@
-#event_detail_div{
-    text-align: center;
+#product_detail_div{
+   text-align: center;
     clear: both;
+}
+
+.thumbnail p {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .col-md-11 {
@@ -8,11 +14,37 @@
     text-align: center;
 }
 
+.prodspec {
+    margin-left: auto;
+    margin-right:auto;
+    width: 50%;
+}
+
 #id_quantity {
     width:50px;
 }
 
-.eventDiv {
+.thumbnail img {
+    margin-top: 20px;
+    max-width: 100%;
+    max-height: 100%;
+}
+.stuff img{
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.caption h3  {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.caption h4 {
+    
+    margin-bottom: 35px;
+}
+
+.productDiv {
     display: inline-block;
     min-height: 240px;
     width: 350px;
@@ -23,27 +55,34 @@
     transition: all .5s;
     -webkit-transition: all .5s;
     -moz-transition: all .5s;
-    text-align: left;
 }
 
-.eventDiv p {
+.productDiv img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 300px;
+    max-height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+
+}
+
+.productDiv p {
     display: inline;
 }
 
-.eventDiv img + div {
+.productDiv img + div {
     display: inline-block;
-    margin-left: 35%;
+    margin-left: 20%;
     margin-right: 35%;
-    width: 30%;
+    width: 60%;
 }
 
 .center{
     margin-top: 20px;
     text-align: center;
-}
-
-.eventDiv:hover {
-	background-color: #e4e4e4;
 }
 
 .right{
@@ -54,13 +93,15 @@ td img{
     max-width: 50px;
     max-height: 50px;
 }
-
+img {
+    border-radius: 6px;
+}
 input {
     display: inline;
     width: 45px
 }
 
-.eventstuff{
+.productstuff{
     display: inline-block;
     height: 300px;
 }
@@ -69,49 +110,13 @@ input {
     text-align: center;
 }
 
-.areaDiv {
-    display: inline-block;
-    height: 150px;
-    width: 150px;
-    background-color: #ededed;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-    transition: all .5s;
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
+img {
+    max-height: 200px;
+    max-width: 200px;
+    border-radius: 6px;
+}
+
+.caption h3 {
     text-align: center;
-}
-
-.areaDiv img {
-    max-height: 100px;
-    max-width: 100px;
-}
-
-.areaDiv:hover {
-	background-color: #e4e4e4;
-}
-
-.eventImageDiv {
-    display: inline-block;
-    max-height: 300px;
-    max-width: 300px;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-    transition: all .5s;
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    text-align: left;
-}
-
-.eventImageDiv img{
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    max-width: 300px;
-    max-height: 300px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+    margin-bottom: 25px;
 }
