@@ -5,22 +5,23 @@
         <title>Product Details</title>
     </head>
     <a href="/homepage/product"><button class="right btn btn-primary">Back To Products</button></a>
-    <button id="shop_cart_btn" class="right btn">Shopping Cart</button>
-    <div id="product_detail_div">
-        <h1> ${ product.product_specification.name } <br> </h1>
-        <div class="productDiv">
-            <img src="${ product.product_specification.photo.image }"/>
-            <div>
-                <p><span class="bold">Description: </span>${ product.product_specification.description }</p><br><br>
-                <p><span class="bold">Price: </span>${ product.product_specification.price }</p>
-            </div>
-            <div class="center">
-                <form class="inline">
-                    <label for="quantity">Qty: </label>
-                    <input min="1" type="number" id="quantity" name="quantity" value="1" />
-                </form>
-                <button data-pid="${ product.id }" class="add_button btn btn-warning">Buy Now</button>
+    <div class="prodspec">
+        <div class="thumbnail">
+            
+                <img src="${ product.product_specification.photo.image }" alt="${ product.product_specification.name }">
+            
+            <div class="caption">
+                <h3>${ product.product_specification.name } <br> <small> Price: ${ product.product_specification.price } </small></h3>
+                <h4> ${ product.product_specification.description } </h4> 
+                <div class="center">
+                    <form class="inline">
+                        <label for="quantity">Qty: </label>
+                        <input min="1" type="number" id="quantity" name="quantity" value="1" />
+                    </form>
+                    <button data-pid="${ product.id }" class="add_button btn btn-warning">Buy Now</button>
+                </div>
             </div>
         </div>
     </div>
  </%block>
+

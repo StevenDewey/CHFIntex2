@@ -1,5 +1,14 @@
 $(function() {
 
+    $('.sweetPics').slick({
+      dots: true,
+      infinite: true,
+      speed: 500,
+      fade: true,
+      cssEase: 'linear'
+    });
+
+
     $('#search').change(function() {
         searchTerms = document.getElementById("search").value;
         //window.location.href = '/homepage/shoppingCart.filter/'
