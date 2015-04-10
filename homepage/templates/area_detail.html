@@ -1,22 +1,22 @@
 <%inherit file="base.htm" />
 
 <%block name="content">
-
-<head>
-    <title>Area Detail</title>
-</head>
-
-    <a href="/homepage/event_detail/${ event.id }"><button class="right btn btn-primary">Back</button></a>
-    <div id="area_detail_div">
-        <div class="areaImageDiv">
-            <img src="${ area.photo.image }">
-        </div>
-        <div class="areaDiv">
-            <h1 class="center"> ${ area.name } <br> </h1>
-            <p><b>Description:</b> </p>${ area.description }<br><br>
-            <p><b>Place Number:</b> ${ area.place_number }</p><br><br>
-            <p><b>Coordinator:</b> ${ area.coordinator.first_name + " " + area.coordinator.last_name }</p><br><br>
-            <p><b>Supervisor:</b> ${ area.supervisor.first_name + " " + area.supervisor.last_name }</p><br><br>
+ <head>
+        <title>Area Details</title>
+    </head>
+    <a href="/homepage/event_detail/${ event.id }"><button class="right btn btn-primary">Back To Event</button></a>
+    <div class="prodspec">
+        <div class="thumbnail">
+            
+                <img src="${ area.photo.image }" alt="${ area.name }">
+            
+            <div class="caption">
+                <h3>${ area.name }</h3>
+                <h4><b>Description:</b> ${ area.description }</h4>
+                <h4><b>Place Number:</b> ${ area.place_number }</h4>
+                <h4><b>Coordinator:</b> ${ area.coordinator.first_name + " " + area.coordinator.last_name }</h4>
+                <h4><b>Supervisor:</b> ${ area.supervisor.first_name + " " + area.supervisor.last_name }</h4>
+            </div>
         </div>
     </div>
         <hr color="#c7c34c" size="2" width="50%">

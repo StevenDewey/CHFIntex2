@@ -83,6 +83,10 @@ td img{
     max-height: 50px;
 }
 
+img {
+    border-radius: 6px;
+}
+
 input {
     display: inline;
     width: 45px
