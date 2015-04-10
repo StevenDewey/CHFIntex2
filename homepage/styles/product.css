@@ -141,6 +141,8 @@ img {
 }
 
 #shop_cart_btn {
-	float:right;
-	margin-top:30px;
+	display: inline-block;
+	margin-left: 15px;
+	/*float:right;
+	margin-top:30px;*/
 }
