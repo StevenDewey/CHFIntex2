@@ -83,7 +83,7 @@ def fees(request):
     else:
         days_late = dl
 
-    lateFee = int(ri.rental_product.cost) * 5 * .01 * days_late #   5% per day late
+    lateFeeVar = int(ri.rental_product.cost) * 5 * .01 * days_late #   5% per day late
 
     if request.method == 'POST':
         form = feesForm(request.POST)
@@ -92,7 +92,7 @@ def fees(request):
                 lateFee = hmod.LateFee()
                 lateFee.waived = form.cleaned_data['lateWaived']
                 lateFee.days_late = days_late
-                lateFee.amount = lateFee
+                lateFee.amount = lateFeeVar
                 # lateFee.order_id = hmod.Order.objects.get(id = p)
                 lateFee.order_id = p
                 lateFee.rental_item = ri
@@ -114,7 +114,7 @@ def fees(request):
 
             return HttpResponseRedirect('/homepage/rental_return/{}/'.format('success'))
 
-    params['lateFee'] = lateFee
+    params['lateFee'] = lateFeeVar
     params['days_late'] = days_late
 
     rental = hmod.RentalItem.objects.get(id=request.urlparams[0])
