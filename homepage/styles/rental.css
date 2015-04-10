@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+
+h1 {
+    margin-top: 0px !important;
+}
 .productDiv {
 	height: 260px;
 	width: 240px;
@@ -13,19 +17,84 @@
 	-webkit-transition: all .5s;
 	-moz-transition: all .5s;
 }
+.thumbnail p {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+.thumbnail button {
+	margin-right: 20px;
+}
+
+td img {
+	max-height: 50px;
+	max-width: 50px;
+}
+.thumbnail img {
+	margin-top: 20px;
+}
+
+.caption h3 {
+	text-align: center;
+	margin-bottom: 25px;
+}
 
 input {
 	display: inline;
 	width: 45px
 }
+.slick-dots li button:before {
+  font-size: 20px;
+}
 
+.slick-prev {
+  left: 250px;
+}
+.slick-next{
+	right: 250px;
+}
+.sweetPics {
+	margin-bottom: 110px;
+}
+.sweetPics h2 {
+	margin-top: 50px;
+	margin-bottom: 0px;
+}
+.sweetPics button {
+	height: 100px;
+	width: 100px;
+}
+.slick-prev:hover, .slick-next:hover {
+	color: black;
+}
+.slick-prev:before, .slick-next:before {
+  font-family: 'slick';
+  font-size: 40px;
+  line-height: 1;
+  opacity: .75;
+  color: grey;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li button {
+  width: 40px;
+  height: 40px;
+}
+.slick-slide img {
+	max-width: 400px;
+	max-height: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.slick-list {
+	  text-align: center;
+}
 .productstuff{
 	display: inline-block;
 }
 
 .buyButton {
 	text-align: center;
-  font-weight: bold;
 }
 
 .productDiv p{
@@ -34,7 +103,6 @@ input {
 
 .productDiv:hover {
 	background-color: #e4e4e4;
-	
 }
 
 #search {
@@ -44,10 +112,12 @@ input {
 #search + input{
 	width: 100px;
 }
-
+.slick-next, .slick-prev {
+	background-color: white;
+}
 .productDiv img {
 	max-height: 100px;
-	max-width: 180px;
+	max-width: 150px;
 	margin-bottom: 10px;
 	display: block;
 	margin-left: auto;
@@ -65,6 +135,11 @@ button {
 }
 
 img {
-	max-height: 50px;
-	max-width: 50px;
+	max-height: 195px;
+	max-width: 200px;
+	border-radius: 6px;
+}
+
+#rent_shop_cart_btn{
+    float:right;
 }
