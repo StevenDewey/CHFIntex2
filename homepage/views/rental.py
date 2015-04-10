@@ -31,7 +31,7 @@ def admin(request):
     return templater.render_to_response(request, 'rental.admin.html', params)
 
 @view_function
-# @permission_required('homepage.change_rental', login_url='/homepage/invalid_permissions/')
+@permission_required('homepage.change_rentalitem', login_url='/homepage/invalid_permissions/')
 def edit(request):
     params = {}
 
@@ -71,7 +71,7 @@ def edit(request):
 
 
 @view_function
-# @permission_required('homepage.add_rental', login_url='/homepage/invalid_permissions/')
+@permission_required('homepage.add_rentalitem', login_url='/homepage/invalid_permissions/')
 def create(request):
     params = {}
 
@@ -116,7 +116,7 @@ def create(request):
     return templater.render_to_response(request, 'rental.edit.html', params)
 
 @view_function
-# @permission_required('homepage.delete_rental', login_url='/homepage/invalid_permissions/')
+@permission_required('homepage.delete_rentalitem', login_url='/homepage/invalid_permissions/')
 def delete(request):
 
     # delete an rental

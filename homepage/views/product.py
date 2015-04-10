@@ -46,7 +46,7 @@ def admin(request):
     return templater.render_to_response(request, 'product.admin.html', params)
 
 @view_function
-# @permission_required('homepage.change_product', login_url='/homepage/invalid_permissions/')
+@permission_required('homepage.change_serializedproduct', login_url='/homepage/invalid_permissions/')
 def edit(request):
     params = {}
 
@@ -83,7 +83,7 @@ def edit(request):
 
 
 @view_function
-# @permission_required('homepage.add_product', login_url='/homepage/invalid_permissions/')
+@permission_required('homepage.add_serializedproduct', login_url='/homepage/invalid_permissions/')
 def create(request):
     params = {}
 
@@ -128,7 +128,7 @@ def create(request):
     return templater.render_to_response(request, 'product.edit.html', params)
 
 @view_function
-# @permission_required('homepage.delete_product', login_url='/homepage/invalid_permissions/')
+@permission_required('homepage.delete_serializedproduct', login_url='/homepage/invalid_permissions/')
 def delete(request):
 
     # delete an product

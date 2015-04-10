@@ -22,7 +22,7 @@ def process_request(request):
     return templater.render_to_response(request, 'area.html', params)
 
 @view_function
-# @permission_required('homepage.change_area', login_url='/homepage/invalid_permissions/')
+@permission_required('homepage.change_area', login_url='/homepage/invalid_permissions/')
 def edit(request):
     params = {}
 
@@ -70,7 +70,7 @@ def edit(request):
 
 
 @view_function
-# @permission_required('homepage.add_area', login_url='/homepage/invalid_permissions/')
+@permission_required('homepage.add_area', login_url='/homepage/invalid_permissions/')
 def create(request):
 
     params = {}
@@ -108,7 +108,7 @@ def create(request):
     return templater.render_to_response(request, 'area.edit.html', params)
 
 @view_function
-# @permission_required('homepage.delete_area', login_url='/homepage/invalid_permissions/')
+@permission_required('homepage.delete_area', login_url='/homepage/invalid_permissions/')
 def delete(request):
 
     '''delete an area'''

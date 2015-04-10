@@ -31,6 +31,7 @@ def admin(request):
     return templater.render_to_response(request, 'mto_product.admin.html', params)
 
 @view_function
+@permission_required('homepage.delete_productspecification', login_url='/homepage/invalid_permissions/')
 def delete(request):
 
     '''delete an event'''
@@ -44,6 +45,7 @@ def delete(request):
     return HttpResponseRedirect('/homepage/mto_product.admin/'.format(mto_products.id))
 
 @view_function
+@permission_required('homepage.add_productspecification', login_url='/homepage/invalid_permissions/')
 def create(request):
     params = {}
 
@@ -90,6 +92,7 @@ def create(request):
     return templater.render_to_response(request, 'mto_product.edit.html', params)
 
 @view_function
+@permission_required('homepage.change_productspecification', login_url='/homepage/invalid_permissions/')
 def edit(request):
     params = {}
 
