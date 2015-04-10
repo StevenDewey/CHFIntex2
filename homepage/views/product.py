@@ -106,6 +106,7 @@ def create(request):
             ProdSpec = hmod.ProductSpecification()
             ProdSpec.description = form.cleaned_data['Description']
             ProdSpec.name = form.cleaned_data['Name']
+            ProdSpec.price = form.cleaned_data['Price']
             ProdSpec.type = "product"
             ProdSpec.category_id = 1
             ProdSpec.save()
@@ -121,7 +122,6 @@ def create(request):
             product.price_per_day = 22.22
             product.replacement_price = 22.22
             product.times_rented = 0
-            product.price = form.cleaned_data['Price']
             product.save()
 
             return HttpResponseRedirect('/homepage/product.admin/')
