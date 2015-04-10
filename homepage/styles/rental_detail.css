@@ -3,13 +3,35 @@
     clear: both;
 }
 
+
 .col-md-11 {
     clear: left;
     text-align: center;
 }
 
+.prodspec {
+    margin-left: auto;
+    margin-right:auto;
+    width: 50%;
+}
+
 #id_quantity {
     width:50px;
+}
+
+.thumbnail img {
+    margin-top: 20px;
+}
+
+
+.caption h3  {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.caption h4 {
+    text-align: center;
+    margin-bottom: 35px;
 }
 
 .productDiv {
@@ -34,6 +56,11 @@
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
+
+}
+
+.productDiv p {
+    display: inline;
 }
 
 .productDiv img + div {

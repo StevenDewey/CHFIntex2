@@ -1,30 +1,14 @@
 $(function() {
 
-    //   $('#search').change(function() {
-    //       searchTerms = document.getElementById("search").value;
-    //       //window.location.href = '/homepage/shoppingCart.filter/'
-    //         console.log(searchTerms);
-    //         $.ajax({
-    //         url: '/homepage/product.filter/' + searchTerms,
-    //         success: function(data){
-    //             $('#DisplayProducts').find('.displaystuff').html(data)
-    //         },//success
-    //     });//ajax
-    //         console.log("got here");
-    // });//click
-
-    //   $('.filter').on('click', function() {
-    //       searchTerms = document.getElementById("search").value;
-    //       //window.location.href = '/homepage/shoppingCart.filter/'
-    //         console.log(searchTerms);
-    //         $.ajax({
-    //         url: '/homepage/product.filter/' + searchTerms,
-    //         success: function(data){
-    //             $('#DisplayProducts').find('.displaystuff').html(data)
-    //         },//success
-    //     });//ajax
-    //         console.log("got here");
-    // });//click
+    $('.sweetPics').slick({
+      autoplay: true,
+      autoplaySpeed: 2000,
+      dots: true,
+      infinite: true,
+      speed: 500,
+      fade: true,
+      cssEase: 'linear'
+    });
 
     $('.add_button').on('click', function() {
 
