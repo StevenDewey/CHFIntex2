@@ -94,9 +94,14 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="/homepage/overdue_rental/">Overdue Items</a></li>
                                 <li class="divider"></li>
-                                <li><a href="/homepage/user/">Users</a></li>
-                                <li class="divider"></li>
                                 <li><a href="/homepage/rental_return/">Rental Return</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/homepage/user/">Edit Users</a></li>
+                                <li><a href="/homepage/event.admin/">Edit Events</a></li>
+                                <li><a href="/homepage/area.admin/">Edit Areas</a></li>
+                                <li><a href="/homepage/product.admin/">Edit Products</a></li>
+                                <li><a href="/homepage/rental.admin/">Edit Rentals</a></li>
+                                <li><a href="/homepage/mto_product.admin/">Edit Made-to-Order Products</a></li>
                             </ul>
                         </li>
                     %elif request.user.has_perm('homepage.change_user'):
@@ -106,9 +111,14 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="/homepage/overdue_rental/">Overdue Items</a></li>
                                 <li class="divider"></li>
-                                <li><a href="/homepage/user/">Users</a></li>
-                                <li class="divider"></li>
                                 <li><a href="/homepage/rental_return/">Rental Return</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/homepage/user/">Edit Users</a></li>
+                                <li><a href="/homepage/event.admin/">Edit Events</a></li>
+                                <li><a href="/homepage/area.admin/">Edit Areas</a></li>
+                                <li><a href="/homepage/product.admin/">Edit Products</a></li>
+                                <li><a href="/homepage/rental.admin/">Edit Rentals</a></li>
+                                <li><a href="/homepage/mto_product.admin/">Edit Made-to-Order Products</a></li>
                             </ul>
                         </li>
                     %elif request.user.has_perm('homepage.add_user'):
@@ -118,9 +128,14 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="/homepage/overdue_rental/">Overdue Items</a></li>
                                 <li class="divider"></li>
-                                <li><a href="/homepage/user/">Users</a></li>
-                                <li class="divider"></li>
                                 <li><a href="/homepage/rental_return/">Rental Return</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/homepage/user/">Edit Users</a></li>
+                                <li><a href="/homepage/event.admin/">Edit Events</a></li>
+                                <li><a href="/homepage/area.admin/">Edit Areas</a></li>
+                                <li><a href="/homepage/product.admin/">Edit Products</a></li>
+                                <li><a href="/homepage/rental.admin/">Edit Rentals</a></li>
+                                <li><a href="/homepage/mto_product.admin/">Edit Made-to-Order Products</a></li>
                             </ul>
                         </li>
                     %endif
@@ -187,7 +202,7 @@
 
 </body>
 <footer class="footer_center_bottom">
-    <span id="log_current_date">${ datetime.datetime.now() }</span>
+##    <span id="log_current_date">${ datetime.datetime.now() }</span>
     ##    <a href="/homepage/about/">About</a>
     ##    <span>  |  </span>
     ##    <a href="/homepage/contact/">Contact</a>

@@ -1,0 +1,47 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+
+    <head>
+        <title>Made-to-Order Products</title>
+    </head>
+
+    <div class="page-header">
+        <h1> Made-to-Order Products <small></small></h1>
+    </div>
+    <a href="/homepage/mto_product.create/" class="btn btn-warning create_new_btn" style="margin-bottom: 10px">Create New Made-to-Order Product</a>
+    <table id="user_table" class="table table-bordered table-hover">
+        <tr>
+            <th>  </th>
+            <th> ID </th>
+            <th> Type </th>
+            <th> Name </th>
+            <th> Price </th>
+            <th> Description </th>
+            <th> Manufacturer </th>
+            <th> Average Cost </th>
+            <th> SKU </th>
+            <th> Order Form Name </th>
+            <th> Production Time </th>
+        </tr>
+        %for mto in mto_products:
+            <tr>
+                <td>
+                    <a href="/homepage/mto_product.edit/${ mto.id }/">Edit</a>
+                    <span> | </span>
+                    <a href="/homepage/mto_product.delete/${ mto.id }/">Delete</a>
+                </td>
+                <td>${ mto.id }</td>
+                <td>${ mto.type }</td>
+                <td>${ mto.name }</td>
+                <td>${ mto.price }</td>
+                <td>${ mto.description }</td>
+                <td>${ mto.manufacturer }</td>
+                <td>${ mto.average_cost }</td>
+                <td>${ mto.sku }</td>
+                <td>${ mto.order_form_name }</td>
+                <td>${ mto.production_time }</td>
+            </tr>
+        %endfor
+    </table>
+</%block>

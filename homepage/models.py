@@ -157,7 +157,7 @@ class ProductSpecification(models.Model):
     production_time = models.TextField(max_length=200, null=True)
     category = models.ForeignKey(Category, related_name='+')
     vendor = models.ForeignKey(User, null=True)
-    photo = models.OneToOneField(Photograph, null=True)
+    photo = models.ForeignKey(Photograph, null=True)
     area = models.ForeignKey(Area, null=True)
 
     def __str__(self):

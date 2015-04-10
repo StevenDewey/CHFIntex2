@@ -50,11 +50,12 @@ def process_request(request):
             return templater.render_to_response(request, 'checkout.payment_info.html', params)
 
         else:
-            params['error'] = "<p class='bg-danger'>Fields are required</p>"
+            params['error'] = "<p class='bg-danger'>All fields except street2 are required</p>"
             params['form'] = form
             return templater.render_to_response(request, 'checkout.ship_address.html', params)
 
     # return templater.render_to_response(request, 'checkout.payment_info.html', params)
+    params['error'] = ''
     params['form'] = form
     return templater.render_to_response(request, 'checkout.ship_address.html', params)
 
@@ -127,6 +128,8 @@ def process_cc(request):
             emailbody = templater.render(request, 'checkout_rental_email.html', params)
             send_mail("Thank You -- CHF Receipt", emailbody, 'Support@chf2015.com', [user_email], html_message=emailbody, fail_silently=False)
 
+            request.session.flush()
+
             return HttpResponseRedirect('/homepage/thank_you/')
 
         else:
@@ -153,5 +156,7 @@ def process_cc(request):
             user_email = request.user.email
             emailbody = templater.render(request, 'checkout_product_email.html', params)
             send_mail("Thank You -- CHF Receipt", emailbody, 'Support@chf2015.com', [user_email], html_message=emailbody, fail_silently=False)
+
+            request.session.flush()
 
             return HttpResponseRedirect('/homepage/thank_you/')
