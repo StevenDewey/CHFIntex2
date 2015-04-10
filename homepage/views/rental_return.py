@@ -136,7 +136,7 @@ def fees(request):
 
 class feesForm(forms.Form):
     lateWaived = forms.BooleanField(required=False, )
-    damageFee = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    damageFee = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     waived = forms.BooleanField(required=False, )
     description = forms.CharField(required= True, widget=forms.Textarea(attrs={'class': 'form-control'}))
     orderID = forms.CharField(widget=forms.HiddenInput(), initial='class')
