@@ -69,7 +69,12 @@ def edit(request):
             # event.address_id = form.cleaned_data['address_id']
             event.save()
             return HttpResponseRedirect('/homepage/event.admin/')
+        else:
+            params['error'] = "<p class='bg-danger'>All fields are required</p>"
+            params['form'] = form
+            return templater.render_to_response(request, 'event.edit.html', params)
 
+    params['error'] = ""
     params['form'] = form
     return templater.render_to_response(request, 'event.edit.html', params)
 
@@ -78,19 +83,43 @@ def edit(request):
 # @permission_required('homepage.add_event', login_url='/homepage/invalid_permissions/')
 def create(request):
 
-    '''Creates a new event'''
-    event = hmod.Event()
-    event.name = 'name'
-    event.description = 'description'
-    event.start_date = '2015-01-01 07:30:00'
-    event.end_date = '2015-01-01 07:30:00'
-    event.map_file_name = 'map file name'
-    event.venue_name = 'venue'
-    #event.address_id = hmod.Address.objects.first().id
-    event.photo_id = 22
-    event.save()
+    params = {}
 
-    return HttpResponseRedirect('/homepage/event.edit/{}/'.format(event.id))
+    class EventEditForm(forms.Form):
+        name = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        description = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        start_date = forms.DateTimeField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        end_date = forms.DateTimeField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        map_file_name = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        venue_name = forms.CharField(required=True, max_length= 100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        # address_id = AddressModelChoiceField(
+        #     queryset=hmod.Address.objects.all(),
+        #     widget=forms.Select(attrs={'class': 'form-control'})
+        #
+
+    form = EventEditForm()
+
+    if request.method == 'POST':
+        form = EventEditForm(request.POST)
+        if form.is_valid():
+            event = hmod.Event()
+            event.name = form.cleaned_data['name']
+            event.description = form.cleaned_data['description']
+            event.start_date = form.cleaned_data['start_date']
+            event.end_date = form.cleaned_data['end_date']
+            event.map_file_name = form.cleaned_data['map_file_name']
+            event.venue_name = form.cleaned_data['venue_name']
+            # event.address_id = form.cleaned_data['address_id']
+            event.save()
+            return HttpResponseRedirect('/homepage/event.admin/')
+        else:
+            params['error'] = "<p class='bg-danger'>All fields are required</p>"
+            params['form'] = form
+            return templater.render_to_response(request, 'event.edit.html', params)
+
+    params['error'] = ""
+    params['form'] = form
+    return templater.render_to_response(request, 'event.edit.html', params)
 
 @view_function
 # @permission_required('homepage.delete_event', login_url='/homepage/invalid_permissions/')

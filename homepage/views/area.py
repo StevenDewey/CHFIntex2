@@ -59,7 +59,12 @@ def edit(request):
             area.event_id = form.cleaned_data['event_id']
             area.save()
             return HttpResponseRedirect('/homepage/area.admin/')
+        else:
+            params['error'] = "<p class='bg-danger'>All fields are required</p>"
+            params['form'] = form
+            return templater.render_to_response(request, 'area.edit.html', params)
 
+    params['error'] = ""
     params['form'] = form
     return templater.render_to_response(request, 'area.edit.html', params)
 
@@ -68,18 +73,39 @@ def edit(request):
 # @permission_required('homepage.add_area', login_url='/homepage/invalid_permissions/')
 def create(request):
 
-    '''Creates a new area'''
-    area = hmod.Area()
-    area.name = 'name'
-    area.description = 'description'
-    area.place_number = 1
-    area.coordinator_id = 1
-    area.supervisor_id = 1
-    area.event_id = 1
-    area.photo_id = 22
-    area.save()
+    params = {}
 
-    return HttpResponseRedirect('/homepage/area.edit/{}/'.format(area.id))
+    class areaEditForm(forms.Form):
+
+        name = forms.CharField(required=True, max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        description = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        place_number = forms.CharField(required=False, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        coordinator_id = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        supervisor_id = forms.CharField(required=True, max_length=1000, widget=forms.TextInput(attrs={'class': 'form-control'}))
+        event_id = forms.IntegerField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+    form = areaEditForm()
+
+    if request.method == 'POST':
+        form = areaEditForm(request.POST)
+        if form.is_valid():
+            area = hmod.Area()
+            area.name = form.cleaned_data['name']
+            area.description = form.cleaned_data['description']
+            area.place_number = form.cleaned_data['place_number']
+            area.coordinator_id = form.cleaned_data['coordinator_id']
+            area.supervisor_id = form.cleaned_data['supervisor_id']
+            area.event_id = form.cleaned_data['event_id']
+            area.save()
+            return HttpResponseRedirect('/homepage/area.admin/')
+        else:
+            params['error'] = "<p class='bg-danger'>All fields are required</p>"
+            params['form'] = form
+            return templater.render_to_response(request, 'area.edit.html', params)
+
+    params['error'] = ""
+    params['form'] = form
+    return templater.render_to_response(request, 'area.edit.html', params)
 
 @view_function
 # @permission_required('homepage.delete_area', login_url='/homepage/invalid_permissions/')
