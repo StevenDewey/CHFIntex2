@@ -22,7 +22,7 @@ def process_request(request):
     return templater.render_to_response(request, 'event.html', params)
 
 @view_function
-# @permission_required('homepage.change_event', login_url='/homepage/invalid_permissions/')
+@permission_required('homepage.change_event', login_url='/homepage/invalid_permissions/')
 def edit(request):
     params = {}
 
@@ -80,7 +80,7 @@ def edit(request):
 
 
 @view_function
-# @permission_required('homepage.add_event', login_url='/homepage/invalid_permissions/')
+@permission_required('homepage.add_event', login_url='/homepage/invalid_permissions/')
 def create(request):
 
     params = {}
@@ -122,7 +122,7 @@ def create(request):
     return templater.render_to_response(request, 'event.edit.html', params)
 
 @view_function
-# @permission_required('homepage.delete_event', login_url='/homepage/invalid_permissions/')
+@permission_required('homepage.delete_event', login_url='/homepage/invalid_permissions/')
 def delete(request):
 
     '''delete an event'''

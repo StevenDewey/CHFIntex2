@@ -13,6 +13,7 @@ from django.contrib.auth.decorators import permission_required
 templater = get_renderer('homepage')
 
 @view_function
+@permission_required('homepage.add_serializedproduct', login_url='/homepage/invalid_permissions/')
 def process_request(request):
 # def loginform(request):
     params = {}
